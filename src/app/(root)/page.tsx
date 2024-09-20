@@ -11,7 +11,7 @@ export default function Home() {
       <BestWeek />
       <LatestArticles />
       </div>
-      <PastQuestions />
+      {/* <PastQuestions /> */}
       {/* <Asks /> */}
       {/* <div className='flex flex-col mt-[2em] gap-[1em] '>
         {preps.map((exam, idx) => (
