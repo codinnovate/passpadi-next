@@ -7,13 +7,13 @@ import React from 'react'
 
 async function JustFor(){
   const blogs = await fetchLatestArticles()
-  const article = blogs.slice(5, 20)
+  const article = blogs?.slice(5, 20)
   return (
     <div className='flex flex-col'>
         <h1 className='text-secondary text-2xl font-bold '>Just For You</h1>
 
         <div className='flex flex-col  md:grid md:grid-cols-3 mt-[2em]  w-full gap-[3em]'>
-          {article.map((article, idx) => (
+          {article?.map((article, idx) => (
             <div key={idx} className='flex flex-col w-full gap-[1em]'>
             <Link href={`/article/${article.blog_id}`}>
              <Image 
@@ -26,7 +26,7 @@ async function JustFor(){
               />
               </Link>
               <span className='flex gap-3'>
-                {article.tags.slice(0, 3).map((tag, idx) => (
+                {article?.tags?.slice(0, 3).map((tag, idx) => (
                   <span key={idx} className='uppercase text-xs text-purple hover:text-gray-500 cursor-pointer'>#{tag.slice(0, 10)}</span>
                 ))}
               </span>
