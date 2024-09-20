@@ -1,33 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css");
+         
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+*{
+  font-family: "Raleway", sans-serif;
+
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* p, h3, a {
+  font-family: "Urbanist", sans-serif;
+} */
+
+
+
+a:hover {
+  color:#4c4fde;
+  transition: all;
+  text-decoration: none;
+
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.font-raleway{
+  font-family: "Raleway", sans-serif !important;
+}
+h1{
+  font-family: "Raleway", sans-serif;
+}
+.font-extrabold {
+  font-weight: 900;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h2{
+  font-family: "Noto Serif", serif;
 }
+
+.pattern{
+  background: url('../assets/pattern.png');
+  background-color: #0c0c0c;
+  background-size: cover;
+}
+.pattern-2{
+  background: url('../assets/pattern2.png');
+  background-color: #0c0c0c;
+  background-size: cover;
+}
+
