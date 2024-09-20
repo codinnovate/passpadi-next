@@ -6,8 +6,20 @@ import React from 'react'
 
 
 async function JustFor(){
-  const blogs = await fetchLatestArticles()
-  const article = blogs?.slice(5, 20)
+  let blogs;
+  try {
+    blogs = await fetchLatestArticles();
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    blogs = []; // Set to an empty array on error to prevent crashing
+  }
+
+  // Check if blogs is an array before slicing
+  const article = Array.isArray(blogs) ? blogs.slice(5, 20) : [];
+
+  if (article.length === 0) {
+    return <p>Loading...</p>; // Display loading message if no articles
+  }
   return (
     <div className='flex flex-col'>
         <h1 className='text-secondary text-2xl font-bold '>Just For You</h1>

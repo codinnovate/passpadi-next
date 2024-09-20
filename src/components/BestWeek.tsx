@@ -4,11 +4,22 @@ import Link from 'next/link';
 import React from 'react';
 
 async function BestWeek() {
-  const data = await fetchLatestArticles(1);
-    
+  let data;
+  try {
+    data = await fetchLatestArticles(1);
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    data = []; // Set to an empty array on error to prevent crashing
+  }
+
+  // Check if data is an array before slicing
+
+  if (data.length === 0) {
+    return <p>Loading...</p>; // Display loading message if no articles
+  }
   return (
     <Link
-     href={`/article/${data?.[0].blog_id}`}
+     href={`/article/${data?.[0]?.blog_id}`}
      className="flex flex-col gap-3 w-full h-full md:min-w-[67%]">
        <Image
         src={data?.[0]?.banner} 
@@ -22,14 +33,14 @@ async function BestWeek() {
         </h1>
         <div className='flex items-center gap-3'>
           <Image 
-          src={data?.[0].author.personal_info.profile_img} 
+          src={data?.[0]?.author?.personal_info?.profile_img} 
           width='30'
           alt='profile image'
           height='30'
           className='rounded-full '
            />
            <div className=''>
-          <h1 className='font-semibold text-sm'>{data?.[0].author.personal_info.fullname}</h1>
+          <h1 className='font-semibold text-sm'>{data?.[0]?.author?.personal_info?.fullname}</h1>
           <h1 className='text-gray text-sm'>{data?.[0]?.publishedAt.slice(0,10)}</h1>
            </div>
         </div>
