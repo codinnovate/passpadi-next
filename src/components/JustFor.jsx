@@ -10,9 +10,9 @@ async function JustFor(){
   const article = blogs.slice(5, 20)
   return (
     <div className='flex flex-col'>
-        <h1 className='text-secondary text-2xl font-extrabold '>Just For You</h1>
+        <h1 className='text-secondary text-2xl font-bold '>Just For You</h1>
 
-        <div className='flex flex-col  md:grid md:grid-cols-3 mt-[3em]  w-full gap-[3em]'>
+        <div className='flex flex-col  md:grid md:grid-cols-3 mt-[2em]  w-full gap-[3em]'>
           {article.map((article, idx) => (
             <div key={idx} className='flex flex-col w-full gap-[1em]'>
             <Link href={`/article/${article.blog_id}`}>
