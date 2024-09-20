@@ -26,8 +26,8 @@ async function JustFor(){
               />
               </Link>
               <span className='flex gap-3'>
-                {article.tags.map((tag, idx) => (
-                  <span key={idx} className='uppercase text-xs text-purple hover:text-gray-100 cursor-pointer'>{tag}</span>
+                {article.tags.slice(0, 3).map((tag, idx) => (
+                  <span key={idx} className='uppercase text-xs text-purple hover:text-gray-500 cursor-pointer'>#{tag.slice(0, 10)}</span>
                 ))}
               </span>
               <Link href={`/article/${article.blog_id}`}> 
