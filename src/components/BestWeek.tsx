@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 
 async function BestWeek() {
-  const data = await fetchLatestArticles();
+  const data = await fetchLatestArticles(1);
     
   return (
     <Link
