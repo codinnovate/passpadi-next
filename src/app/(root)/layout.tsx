@@ -7,7 +7,7 @@ import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "PassPadi",
-  description: "Passpadi: Ask ,and get your answers",
+  description: "Passpadi: Ask,and get your answers",
 };
 
 export default function RootLayout({

@@ -1,6 +1,5 @@
 import BestWeek from "@/components/BestWeek";
 import LatestArticles from "@/components/LatestArticles";
-import PastQuestions from '@/components/PastQuestions';
 import JustFor from '@/components/JustFor';
 
 export default function Home() {
@@ -11,16 +10,6 @@ export default function Home() {
       <BestWeek />
       <LatestArticles />
       </div>
-      {/* <PastQuestions /> */}
-      {/* <Asks /> */}
-      {/* <div className='flex flex-col mt-[2em] gap-[1em] '>
-        {preps.map((exam, idx) => (
-            <ExamPreps
-            key={idx} 
-            exam={exam}
-            />
-        ))}
-      </div> */}
       <JustFor />
 
     </div>
