@@ -13,7 +13,7 @@ const preps = [
     {title:"WAEC Prep", image:'', link:'/jamb-preps', className:'bg-[#64c573]'},
   ]
 
-async function page ({ params }: { params: { subject: string } }){
+async function page ({ params }){
     
     const subjects = await getAllSubjects();
     if (!params.subject) return null;

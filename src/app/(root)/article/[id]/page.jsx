@@ -3,7 +3,7 @@ import LatestArticles from "@/components/LatestArticles";
 import Image from "next/image";
 import BlogContent from "@/components/ui/BlogContent";
 
-async function page ({params}:{params:{id:string}}) {
+async function page ({params}) {
     const article = await getSingleArticle(params.id);
     return (
         <div className="flex flex-col gap-[2em]">

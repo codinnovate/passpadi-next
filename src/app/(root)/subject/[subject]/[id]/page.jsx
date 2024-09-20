@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import parse from 'html-react-parser';
 
 
-async function page({params}:{params:{id:string}}){
+async function page({params}){
     const question = await getQuestion(params.id);
     const optionLabels = ['A', 'B', 'C', 'D', 'E', 'F'];
     return (
