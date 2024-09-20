@@ -1,7 +1,7 @@
 import BestWeek from "@/components/BestWeek";
 import LatestArticles from "@/components/LatestArticles";
 import PastQuestions from '@/components/PastQuestions';
-import JustFor from '@/components/justFor';
+import JustFor from '@/components/JustFor';
 
 export default function Home() {
 
