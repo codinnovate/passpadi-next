@@ -28,7 +28,7 @@ async function page ({ params }){
         subjectName={params.subject}
          />
         <div className="">
-        {questions && questions.map((question, index:string) => (
+        {questions && questions.map((question, index) => (
         <div
          key={index}
         className="border-b  mb-5">
