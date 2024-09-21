@@ -54,7 +54,7 @@ async function page ({params}) {
                 return (
                 <div
                     key={i}
-                    className='my-4 md:my-8 '>
+                    className='mt-4'>
                     <BlogContent block={block}  />
                 </div>
                 )})

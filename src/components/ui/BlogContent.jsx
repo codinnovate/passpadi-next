@@ -7,10 +7,10 @@ import React from 'react'
 
 const Quote = ({ quote, caption }) => {
     return (
-        <div className='bg-purple/20 p-3 pl-5 border-l-4 rounded-2xl border-t-4 border-purple'>
-            <p className='text-xl leading-10 md:text-2xl text-purple' dangerouslySetInnerHTML={{__html:quote}}></p>
+        <div className=' p-3 pl-5 border-l  border-gray-100'>
+            <p className=' text-black/90 text-sm' dangerouslySetInnerHTML={{__html:quote}}></p>
             {caption.length ?
-                <p className='w-full text-purple text-base'>{caption}</p> : ""}
+                <p className='w-full text-black/90 text-base'>{caption}</p> : ""}
         </div>
     )
 }
@@ -32,7 +32,7 @@ const BlogContent = ({ block }) => {
     let { type, data } = block;
 
     if (type == "paragraph") {
-        return <p className='font-medium' dangerouslySetInnerHTML={{__html:data.text}}></p>
+        return <p className='' dangerouslySetInnerHTML={{__html:data.text}}></p>
     }
     if(type == "embed"){
         return (
@@ -45,7 +45,7 @@ const BlogContent = ({ block }) => {
         if (data.level == 3) {
             return <h3 className='text-xl font-raleway font-semibold underline' dangerouslySetInnerHTML={{__html:data.text }}></h3>
         }
-        return <h2 className='text-2xl font-bold font-raleway' dangerouslySetInnerHTML={{__html:data.text }}></h2>
+        return <h2 className='text-2xl mt-3 font-bold font-raleway' dangerouslySetInnerHTML={{__html:data.text }}></h2>
 
         
     }
