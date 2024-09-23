@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Image from 'next/image'
 
 
 
@@ -52,8 +52,12 @@ const BlogContent = ({ block }) => {
     if (type == "image") {
         return (
             <div className=''>
-                <img src={data.file.url}
-                    className='aspect-video ' />
+                <Image
+                 src={data.file.url}
+                 className='aspect-video'
+                 width='700'
+                 height='500' 
+                    />
                 {data.caption.length ? <p className='w-full text-ceneter my-3 md:mb-12 text-base text-dark-grey'>{data.caption}</p> : ''}
             </div>     
         )

@@ -28,8 +28,8 @@ For the purposes of this Privacy Policy:
                 </h1>
                 
 Account means a unique account created for You to access our Service or parts of our Service.
-Affiliate means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
-Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to PASSPADI.
+Affiliate means an entity that controls, is controlled by or is under common control with a party, where &quot;control&quot; means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.
+Company (referred to as either &quot;the Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in this Agreement) refers to PASSPADI.
                 <p>                
 Cookies are small files that are placed on Your computer, mobile device or any other device by a website, containing the details of Your browsing history on that website among its many uses.
 </p>
@@ -110,7 +110,7 @@ Cookies or Browser Cookies. A cookie is a small file placed on Your Device. You 
                 Web Beacons.
                 <p></p>
  Certain sections of our Service and our emails may contain small electronic files known as web beacons (also referred to as clear gifs, pixel tags, and single-pixel gifs) that permit the Company, for example, to count users who have visited those pages or opened an email and for other related website statistics (for example, recording the popularity of a certain section and verifying system and server integrity).
-Cookies can be "Persistent" or "Session" Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser. Learn more about cookies on the Free Privacy Policy website article.
+Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You close Your web browser. Learn more about cookies on the Free Privacy Policy website article.
 <p></p>
 
 We use both Session and Persistent Cookies for the purposes set out below:
@@ -282,7 +282,7 @@ We may update Our Privacy Policy from time to time. We will notify You of any ch
 </p>
 
                 <p>                
-We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the "Last updated" date at the top of this Privacy Policy.
+We will let You know via email and/or a prominent notice on Our Service, prior to the change becoming effective and update the &quot;Last updated&quot; date at the top of this Privacy Policy.
 </p>
 
                 <p>                
