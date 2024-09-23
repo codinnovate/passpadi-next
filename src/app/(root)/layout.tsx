@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
       <html lang='en'>
       <Script 
+      id="google-adsense-script"
       async 
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8689849165840696"
      crossOrigin="anonymous">

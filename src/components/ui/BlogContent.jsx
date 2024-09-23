@@ -56,6 +56,7 @@ const BlogContent = ({ block }) => {
                  src={data.file.url}
                  className='aspect-video'
                  width='700'
+                 alt='banner image'
                  height='500' 
                     />
                 {data.caption.length ? <p className='w-full text-ceneter my-3 md:mb-12 text-base text-dark-grey'>{data.caption}</p> : ''}
