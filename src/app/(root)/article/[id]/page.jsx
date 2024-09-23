@@ -32,7 +32,7 @@ async function page ({params}) {
            </div>
            </div>
            <div className="flex items-center gap-3 border-b border-gray pb-[2em]">
-            <p className="text-sm font-raleway font-normal text-gray">Implemet share icons, twitter, facebook, whatsapp, etx</p>
+            {/* <p className="text-sm font-raleway font-normal text-gray">Implemet share icons, twitter, facebook, whatsapp, etx</p> */}
            </div>
             <h1 className="text-xl font-medium italic text-purple">{article.des}</h1>
             <Image
@@ -42,11 +42,11 @@ async function page ({params}) {
             height='500'
             className='aspect-video object-cover' />
             <div className="flex w-full flex-col md:flex-row gap-5">
-            <div className="md:w-[10%] sticky" > 
+            {/* <div className="md:w-[10%] sticky" > 
              <h1 className='font-bold text-blue-500'>Facebook</h1>
              <h1 className='font-bold text-blue-300'>X(twitter)</h1>
              <h1 className='font-bold text-red'>Pinterest</h1>
-            </div>
+            </div> */}
             <div className="flex w-full flex-col md:w-[90%]">
 
             {

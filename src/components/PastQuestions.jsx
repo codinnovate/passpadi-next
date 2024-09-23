@@ -12,15 +12,22 @@ function getRandomColor() {
 }
 
 async function PastQuestions() {
-  const subjects = await getAllSubjects();
+  // const subjects = await getAllSubjects();
+  const subjects = [
+    {name:"mathematics"},
+    {name:"english"},
+    {name:"general-paper"},
+    {name:"chemistry"},
+    {name:"physics"},
+  ]
   
   return (
     <div className='flex flex-col gap-3'>
       <h1 className='text-2xl font-extrabold my-[2em]'>Study official Past Questions</h1>
       <div className='flex flex-wrap gap-5 bg-red-700 '>
-        {subjects && subjects.map((subject, idx) => (
+        {subjects.map((subject, idx) => (
           <Link
-            href={`subject/${subject.subject_id}`} 
+            href={`subject/${subject.name}`} 
             key={idx} 
             className='flex cursor-pointer underline transition-all delay-100 ease-in-out hover:-ml-2 hover:-mr-2 md:hover:-mt-2 justify-between  items-center px-2 w-[20em]'
           >

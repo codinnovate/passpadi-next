@@ -2,7 +2,7 @@ import React from 'react'
 
 const Filters = ({subjectName}) => {
   return (
-    <div className='flex flex-col w-full border mt-[2em] p-5 rounded-2xl'>
+    <div className='hidden flex-col w-full border mt-[2em] p-5 rounded-2xl'>
         <h1 className='capitalize font-semibold text-2xl '>Filter {subjectName} Questions</h1>
      
       <div className='flex mt-10'>

@@ -61,11 +61,11 @@ async function page ({ params }){
                 <span className='bg-yellow-300 p-1 text-black flex items-center rounded-tl-md  rounded-none'>
                     <span className='flex gap-2 text-sm ml-3 font-medium'>{question.examType} <span className="ml-2">{question.examYear}</span></span>
                 </span>
-                {question.school && (
+                {/* {question.school && (
                     <span className='bg-green-300 p-1 text-black flex items-center rounded-tl-md  rounded-none'>
                     <span className='flex gap-2 text-sm ml-3 font-medium'>{question.school.name}</span>
                 </span>
-                )}
+                )} */}
             </div>
 
       

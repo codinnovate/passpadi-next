@@ -5,13 +5,17 @@ import React, { useState } from 'react'
 import logo from  '../assets/logo.png';
 import Image from 'next/image';
 import Link from 'next/link';
-import Searchbar from './ui/Searchbar';
 
 const blogItems = [
-  {title: "Home", link: "/home"}, 
-  {title: "Cbt", link: "/cbts"}, 
-  {title: "Classroom", link: "/subject"}, 
-  {title: "Hacks", link: "/tag/hacks"}, 
+  {title: "Home", link: "/"}, 
+  // {title: "Cbt", link: "/cbts"}, 
+  {title: "English PQ", link: "/subject/english"}, 
+  {title: "Mathematics PQ", link: "/subject/mathematics"},  
+  {title: "Chemistry PQ", link: "/subject/chemistry"},  
+  {title: "Physics PQ", link: "/subject/physics"},   
+  {title: "Biology PQ", link: "/subject/biology"},   
+  {title: "General Paper PQ", link: "/subject/general-paper"}, 
+  
 ]
 const Header = () => {
   const [show, setShow] = useState(false);
@@ -28,14 +32,13 @@ const Header = () => {
 
     <nav className='hidden md:flex gap-5  items-center justify-between'>
       {blogItems.map((item, idx) => (
-        <Link href={item.link} key={idx} className='font-semibold text-secondary hover:text-purple transition-all'>
+        <Link
+         href={item.link} key={idx} className='text-sm font-medium hover:underline  text-secondary  transition-all'>
         <h1>{item.title}</h1>
         </Link>
       ))}
     </nav>
-    <div className='w-full hidden md:flex'>
-    <Searchbar />
-    </div>
+    
 
     {/* <Navbar /> */}
     <div className='flex items-center gap-2'>
@@ -65,7 +68,7 @@ const Header = () => {
     </div>
     
      {show && (
-      <div className='md:hidden absolute flex flex-col gap-3 top-0 mt-[4em] bottom-0 left-0  bg-secondary w-full h-[20em] p-5 rounded-b-2xl transition-all '>
+      <div className='md:hidden absolute flex flex-col gap-3 top-0 mt-[4em] bottom-0 left-0  bg-secondary w-full min-h-[20em]  h-fit p-5 rounded-b-2xl transition-all '>
         <div className='ml-auto rounded-md bg-white hover:bg-purple w-fit h-fit flex items-center justify-center'>
           <button onClick={() => setShow(false)}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -75,12 +78,16 @@ const Header = () => {
         </div>
       <nav className='flex flex-col mt-[2em] gap-2  justify-between'>
       {blogItems.map((item, idx) => (
-        <Link href={item.link} key={idx} className='font-semibold  duration-300 uppercase text-white text-xl hover:text-purple transition-all'>
+        <Link 
+        onClick={() => setShow(false)}
+        href={item.link} 
+        key={idx} 
+        className='font-semibold  duration-300 uppercase text-white text-xl hover:text-purple transition-all'>
         <h1>{item.title}</h1>
         </Link>
       ))}
     </nav>
-    <Searchbar />
+    {/* <Searchbar /> */}
       </div>
      )}
     </header>

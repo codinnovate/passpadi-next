@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Header from "@/components/Header";
 import Script from "next/script";
+import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
@@ -17,13 +18,11 @@ export default function RootLayout({
 }) {
   return (
       <html lang='en'>
-    <Script 
-    id="adsense"
-    async 
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4596593216905677"
-    crossOrigin="anonymous">
-
-    </Script>
+      <Script 
+      async 
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8689849165840696"
+     crossOrigin="anonymous">
+     </Script>
     <Script
         id="katex"
         defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossOrigin="anonymous"></Script>
@@ -35,11 +34,14 @@ export default function RootLayout({
     crossOrigin="anonymous">
       
     </Script>
-        <body className='max-w-6xl mx-auto p-2'>
+        <body className=''>
+          <div className="max-w-6xl mx-auto p-2">
          <Header />
-          <main className='flex flex-row p-2'>
+          </div>
+          <main className='max-w-6xl mx-auto flex flex-row p-2'>
               {children}
           </main>
+          <Footer />
         </body>
       </html>
   );

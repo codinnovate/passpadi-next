@@ -41,7 +41,7 @@ async function page({params}){
                         </div>
                     
                     
-                    <div className="flex items-center flex-wrap gap-5">
+                    <div className="hidden items-center flex-wrap gap-5">
                         <Button
                          title='Report an Error' />
                          <Button
