@@ -2,11 +2,23 @@ import { getSingleArticle } from "@/app/actions";
 import LatestArticles from "@/components/LatestArticles";
 import Image from "next/image";
 import BlogContent from "@/components/ui/BlogContent";
+import Head from "next/head";
 
 async function page ({params}) {
     const article = await getSingleArticle(params.id);
     return (
         <div className="flex flex-col gap-[2em]">
+            <Head>
+        <title>{article.title}</title>
+        <meta name="description" content="Brief description of your article" />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.des} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://passpadi.com/article/${article.blog_id}`} />
+        <meta property="og:image" content={article.banner} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+      </Head>
         <div className="flex flex-col md:flex-row w-full gap-[3em] p-2">
             <div className="md:w-[70%]  w-full flex flex-col gap-[1.5em]">
                 <span className="font-raleway flex items-center gap-1">
