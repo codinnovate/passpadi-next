@@ -69,18 +69,7 @@ async function page ({params}) {
                     key={i}
                     className='mt-4'>
                     <BlogContent block={block}  />
-                <Script 
-                async 
-                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8689849165840696"
-                crossOrigin="anonymous"></Script>
-                <ins 
-                className="adsbygoogle"
-                    data-ad-layout="in-article"
-                    data-ad-format="fluid"
-                    data-ad-client="ca-pub-8689849165840696"
-                    data-ad-slot="2932613304"></ins>
-                <Script>
-                </Script>
+               
                 </div>
                 )})
                                 }
