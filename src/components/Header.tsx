@@ -8,14 +8,13 @@ import Link from 'next/link';
 
 const blogItems = [
   {title: "Home", link: "/"}, 
-  // {title: "Cbt", link: "/cbts"}, 
-  {title: "English PQ", link: "/subject/english"}, 
-  {title: "Mathematics PQ", link: "/subject/mathematics"},  
-  {title: "Chemistry PQ", link: "/subject/chemistry"},  
-  {title: "Physics PQ", link: "/subject/physics"},   
-  {title: "Biology PQ", link: "/subject/biology"},   
-  {title: "General Paper PQ", link: "/subject/general-paper"}, 
-  
+  {title: "Cbts", link: "/cbts"}, 
+  {title: "Interviews", link: "/interviews"}, 
+  {title: "Classroom", link: "/subject/mathematics"},  
+  {title: "MarketPlace", link: "/subject/chemistry"},  
+  {title: "Find Roomate", link: "/subject/chemistry"},  
+  {title: "Community", link: "/subject/chemistry"},  
+   
 ]
 const Header = () => {
   const [show, setShow] = useState(false);

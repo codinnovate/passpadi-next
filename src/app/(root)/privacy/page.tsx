@@ -184,15 +184,20 @@ When You access the Service by or through a mobile device, We may collect certai
                         To manage Your Account: to manage Your registration as a user of the Service. The Personal Data You provide can give You access to different functionalities of the Service that are available to You as a registered user.
                         <p></p>
 
-                        For the performance of a contract: the development, compliance and undertaking of the purchase contract for the products, items or services You have purchased or of any other contract with Us through the Service.
+                        For the performance of a contract: the development, compliance and undertaking of the purchase contract for the products,
+                         items or services You have purchased or of any other contract with Us through the Service.
                         <p></p>
 
                         <p></p>
-                        To contact You: To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication, such as a mobile application&apos;s push notifications regarding updates or informative communications related to the functionalities, products or contracted services, including the security updates, when necessary or reasonable for their implementation.
+                        To contact You: To contact You by email, telephone calls, SMS, or other equivalent forms of electronic communication,
+                         such as a mobile application&apos;s push notifications regarding updates or informative communications related to the functionalities,
+                          products or contracted services, including the security updates, when necessary or reasonable for their implementation.
                         <p></p>
 
                         <p></p>
-                        To provide You with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless You have opted not to receive such information.
+                        To provide You with news, special offers and general information about other goods, services and events
+                         which we offer that are similar to those that you have already purchased or enquired about unless 
+                         You have opted not to receive such information.
 
                         To manage Your requests: To attend and manage Your requests to Us.
                         <p></p>

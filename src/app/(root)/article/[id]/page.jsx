@@ -3,9 +3,11 @@ import LatestArticles from "@/components/LatestArticles";
 import Image from "next/image";
 import BlogContent from "@/components/ui/BlogContent";
 import Head from "next/head";
+import Script from "next/script";
 
 async function page ({params}) {
     const article = await getSingleArticle(params.id);
+    
     return (
         <div className="flex flex-col gap-[2em]">
             <Head>
@@ -60,7 +62,6 @@ async function page ({params}) {
              <h1 className='font-bold text-red'>Pinterest</h1>
             </div> */}
             <div className="flex w-full flex-col md:w-[90%]">
-
             {
                 article.content[0].blocks.map((block, i) => {
                 return (
@@ -68,9 +69,22 @@ async function page ({params}) {
                     key={i}
                     className='mt-4'>
                     <BlogContent block={block}  />
+                <Script 
+                async 
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8689849165840696"
+                crossOrigin="anonymous"></Script>
+                <ins 
+                className="adsbygoogle"
+                    data-ad-layout="in-article"
+                    data-ad-format="fluid"
+                    data-ad-client="ca-pub-8689849165840696"
+                    data-ad-slot="2932613304"></ins>
+                <Script>
+                </Script>
                 </div>
                 )})
                                 }
+               
             </div>
             </div>
             </div>
