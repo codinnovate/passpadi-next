@@ -1,19 +1,28 @@
+import Image from "next/image";
 import AppStoreButtons from "../ui/appstores";
+import dotsBg from "../assets/dots.png";
+import iphoneFull from "../assets/iphone-full.svg";
+import iphoneHalf from "../assets/iphone-half.svg";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
-      <div className="mx-auto grid max-w-screen-xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+    <section
+      className="relative overflow-hidden bg-white"
+      style={{
+        backgroundImage: `url(${dotsBg.src})`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "auto",
+      }}
+    >
+      <div className="mx-auto grid max-w-screen-xl items-center justify-center gap-10 px-4 pt-16 md:grid-cols-2 md:pt-24">
         {/* Left */}
-        <div className="max-w-xl">
-          <h1 className="text-4xl font-bold leading-[1.15] tracking-tight text-app-secondary md:text-5xl lg:text-[56px]">
+        <div className="max-w-[300px] md:max-w-xl flex  flex-col  items-center md:items-start">
+          <h1 className="text-3xl  text-center  md:text-start  md:text-5xl lg:text-[56px] font-semibold leading-[1.15] tracking-tight text-app-secondary">
             Ace Your{" "}
-            <span className="text-app-primary">Post-UTME</span>
-            {" "}
-            &amp; <span className="text-app-primary">JAMB</span>{" "}
+            <span className="text-app-primary">Post-UTME &amp; JAMB</span>{" "}
             with Smart CBT Practice
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-gray-500 md:text-lg">
+          <p className="mt-5 text-center   text-regular md:text-start text-base leading-relaxed text-gray-500 md:text-lg">
             Prepare confidently, learn faster, and excel in your exams with
             up-to-date questions and practice tools.
           </p>
@@ -22,18 +31,23 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right — Phone mockup placeholder */}
+        {/* Right — Phone mockup */}
         <div className="flex items-center justify-center">
-          <div className="relative h-[500px] w-[280px] rounded-[40px] border-4 border-gray-200 bg-gray-50 shadow-2xl md:h-[560px] md:w-[300px]">
-            <div className="absolute inset-x-0 top-0 mx-auto h-6 w-28 rounded-b-2xl bg-gray-200" />
-            <div className="flex h-full flex-col items-center justify-center p-6 text-center">
-              <div className="text-3xl">📱</div>
-              <p className="mt-3 text-xs text-gray-400">
-                App screenshot
-              </p>
-            </div>
-          </div>
+          <Image
+            src={iphoneFull}
+            alt="90percent app preview"
+            className="hidden md:block"
+            priority
+          />
+          <Image
+            src={iphoneHalf}
+            alt="90percent app preview"
+            className="block md:hidden"
+            priority
+          />
         </div>
+
+        
       </div>
     </section>
   );

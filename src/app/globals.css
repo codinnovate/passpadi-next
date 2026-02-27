@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css");
 
 @font-face {
@@ -92,6 +93,12 @@
 
 * {
   font-family: "SF Pro Rounded", sans-serif;
+  
+}
+
+.landing-geist,
+.landing-geist * {
+   font-family: "Geist", sans-serif !important;
 }
 
 a:hover {

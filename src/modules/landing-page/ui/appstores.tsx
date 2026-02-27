@@ -1,33 +1,31 @@
 import Link from "next/link";
+import Image from "next/image";
+import appStoreBadge from "../assets/app-store.svg";
+import googlePlayBadge from "../assets/google-play.svg";
+
+const APP_STORE_URL =
+  "https://apps.apple.com/us/app/90percent/id6747773294";
+const PLAY_STORE_URL =
+  "https://play.google.com/store/apps/details?id=com.kidscantech.App";
 
 export default function AppStoreButtons() {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex  items-center gap-3">
       <Link
-        href="#"
+        href={APP_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Download on the App Store"
-        className="inline-flex items-center rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50"
       >
-        <span className="mr-2 text-xl"></span>
-        <span>
-          <span className="block text-[10px] leading-3 text-gray-500">
-            Download on the
-          </span>
-          <span className="block leading-4">App Store</span>
-        </span>
+        <Image src={appStoreBadge} alt="Download on the App Store" height={44} width={147} />
       </Link>
       <Link
-        href="#"
+        href={PLAY_STORE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Get it on Google Play"
-        className="inline-flex items-center rounded-xl border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-800 shadow-sm hover:bg-gray-50"
       >
-        <span className="mr-2 text-base">▶︎</span>
-        <span>
-          <span className="block text-[10px] leading-3 text-gray-500">
-            GET IT ON
-          </span>
-          <span className="block leading-4">Google Play</span>
-        </span>
+        <Image src={googlePlayBadge} alt="Get it on Google Play" height={44} width={147} />
       </Link>
     </div>
   );
