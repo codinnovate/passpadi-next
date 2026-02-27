@@ -4,9 +4,11 @@ import "./globals.css";
 import Script from "next/script";
 import Providers from "@/components/Providers";
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-ZYP9182XT3";
+
 export const metadata: Metadata = {
   title: {
-    default: "90percent — Pass JAMB & Post‑UTME in one go",
+    default: "90percent |  Pass JAMB & Post UTME in one go",
     template: "%s | 90percent",
   },
   description:
@@ -14,16 +16,20 @@ export const metadata: Metadata = {
   keywords: [
     "90percent",
     "pass your jamb",
+    "My School",
+    "My School Cbt",
     "pass jamb",
+    "330",
+    "three thirty",
     "jamb",
     "utme",
     "post utme",
-    "post‑utme",
+    "post utme apps",
     "pass post utme",
     "exam prep",
     "cbt practice",
     "past questions",
-    "study planner",
+    "Jamb Past Questions",
     "university admission",
     "waec",
     "neco",
@@ -63,13 +69,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "90percent — Pass JAMB & Post‑UTME in one goal",
+    title: "90percent — Pass JAMB & Post‑UTME in one go",
     description:
-      "Pass your JAMB and Post‑UTME in one goal with smart practice and explanations.",
+      "Pass your JAMB and Post UTME in one goal with smart practice and explanations.",
   },
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
   category: "Education",
 };
 
@@ -80,6 +94,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Script
+        id="ga"
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+      />
+      <Script
+        id="ga-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}');
+          `,
+        }}
+      />
       <Script
         id="google-adsense-script"
         async
