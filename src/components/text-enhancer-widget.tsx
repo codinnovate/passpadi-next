@@ -5,6 +5,6 @@ interface TextEnhancerWidgetProps {
   onChange: (value: string) => void;
 }
 
-export function TextEnhancerWidget({ value, onChange }: TextEnhancerWidgetProps) {
+export function TextEnhancerWidget({ value: _value, onChange: _onChange }: TextEnhancerWidgetProps) {
   return null;
 }

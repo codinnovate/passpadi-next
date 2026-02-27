@@ -80,6 +80,7 @@ export default function QuestionDetailView({
     // KaTeX scripts may still be loading — retry briefly if not ready
     if (window.renderMathInElement) {
       render();
+      return;
     } else {
       const timer = setTimeout(render, 500);
       return () => clearTimeout(timer);

@@ -1,7 +1,6 @@
 import { fetchLatestArticles } from '@/app/actions';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import Loader from '@/components/Loader';
 
 

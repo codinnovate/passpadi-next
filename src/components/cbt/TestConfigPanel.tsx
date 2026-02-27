@@ -46,7 +46,7 @@ export default function TestConfigPanel({
         <div className="px-1">
           <Slider
             value={[duration]}
-            onValueChange={([val]) => onDurationChange(val)}
+            onValueChange={([val]) => onDurationChange(val!)}
             min={5}
             max={180}
             step={5}

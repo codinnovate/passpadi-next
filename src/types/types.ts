@@ -1,4 +1,4 @@
-import { Control, FieldValues, Path } from "react-hook-form";
+import { Control } from "react-hook-form";
 
 export enum FormFieldType {
   INPUT = "input",

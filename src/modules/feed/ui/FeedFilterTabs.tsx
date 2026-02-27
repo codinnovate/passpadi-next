@@ -1,7 +1,6 @@
 "use client";
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import type { PostType } from "../types/feed.types";
 
 interface FeedFilterTabsProps {
   value: string;

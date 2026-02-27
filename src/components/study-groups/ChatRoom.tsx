@@ -172,6 +172,7 @@ export default function ChatRoom({ groupId }: ChatRoomProps) {
     if (index === 0) return true;
     const prev = messages[index - 1];
     const curr = messages[index];
+    if (!prev || !curr) return true;
     if (prev.sender?._id !== curr.sender?._id) return true;
     // Show avatar if gap > 5 minutes
     return moment(curr.createdAt).diff(moment(prev.createdAt), "minutes") > 5;
@@ -182,6 +183,7 @@ export default function ChatRoom({ groupId }: ChatRoomProps) {
     if (index === messages.length - 1) return true;
     const curr = messages[index];
     const next = messages[index + 1];
+    if (!curr || !next) return true;
     if (curr.sender?._id !== next.sender?._id) return true;
     return moment(next.createdAt).diff(moment(curr.createdAt), "minutes") > 5;
   }
@@ -238,7 +240,7 @@ export default function ChatRoom({ groupId }: ChatRoomProps) {
               const showDate =
                 i === 0 ||
                 getDateLabel(msg.createdAt) !==
-                  getDateLabel(localMessages[i - 1].createdAt);
+                  getDateLabel(localMessages[i - 1]!.createdAt);
 
               return (
                 <div key={msg._id}>

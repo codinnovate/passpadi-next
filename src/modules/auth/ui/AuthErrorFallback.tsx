@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import type { FallbackProps } from "react-error-boundary";
 
 export default function AuthErrorFallback({
-  error,
+  error: _error,
   resetErrorBoundary,
 }: FallbackProps) {
   return (

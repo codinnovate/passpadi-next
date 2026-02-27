@@ -58,7 +58,7 @@ export default function PostDetailView({ postId }: PostDetailViewProps) {
 
   const [reportPostId, setReportPostId] = useState<string | null>(null);
 
-  const { data, isLoading, isError, error, refetch, isFetching } =
+  const { data, isLoading, isError, error, refetch } =
     useGetPostQuery(postId);
   const [likePost] = useLikePostMutation();
   const [unlikePost] = useUnlikePostMutation();

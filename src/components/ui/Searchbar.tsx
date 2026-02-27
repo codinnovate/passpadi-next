@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Searchbar = () => {
   return (
     <div className='flex rounded-md  items-center w-full  bg-gray-100 border px-3 py-1' >

@@ -175,7 +175,7 @@ export default function CbtPracticeSession() {
         const optionIndex = key.charCodeAt(0) - 65; // A=0, B=1, C=2, D=3...
         if (optionIndex >= 0 && optionIndex < currentQuestion.options.length) {
           e.preventDefault();
-          selectAnswer(currentQuestion.options[optionIndex]);
+          selectAnswer(currentQuestion.options[optionIndex]!);
           return;
         }
       }
@@ -257,18 +257,19 @@ export default function CbtPracticeSession() {
       if (!perSubject[q.subjectName]) {
         perSubject[q.subjectName] = { correct: 0, wrong: 0, skipped: 0, total: 0 };
       }
-      perSubject[q.subjectName].total++;
+      const stats = perSubject[q.subjectName]!;
+      stats.total++;
 
       const userAnswer = answers[q._id];
       if (!userAnswer) {
         skipped++;
-        perSubject[q.subjectName].skipped++;
+        stats.skipped++;
       } else if (userAnswer === q.answer) {
         correct++;
-        perSubject[q.subjectName].correct++;
+        stats.correct++;
       } else {
         wrong++;
-        perSubject[q.subjectName].wrong++;
+        stats.wrong++;
       }
     }
 

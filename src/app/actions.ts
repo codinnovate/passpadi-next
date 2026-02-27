@@ -38,7 +38,7 @@ export const getAllSubjects = async () => {
     }
 }
 
-export const fetchLatestArticles = async (page:number) => {
+export const fetchLatestArticles = async (_page:number) => {
     try {
         const response = await axios.post(`${serverApp}/latest-blogs`, {page: 1} )
         const data = response.data;

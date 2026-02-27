@@ -31,7 +31,6 @@ export default function ReplyItem({
 
   const pi = (reply.user as any)?.personal_info;
   const userName = pi?.fullname || reply.user?.name || "";
-  const userUsername = pi?.username || reply.user?.username || "";
   const userAvatar = pi?.profile_img || reply.user?.avatar || "";
 
   const initials = userName

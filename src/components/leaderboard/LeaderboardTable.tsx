@@ -22,7 +22,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowUpDown, Trophy, Medal } from "lucide-react";
-import { cn } from "@/lib/utils";
 import LeaderboardPodium from "./LeaderboardPodium";
 
 const periods = [

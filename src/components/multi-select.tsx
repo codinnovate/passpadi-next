@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 
 interface MultiSelectComboboxProps {
   options: { label: string; value: string }[];
@@ -11,9 +10,9 @@ interface MultiSelectComboboxProps {
 }
 
 export function MultiSelectCombobox({
-  options,
+  options: _options,
   selected,
-  onChange,
+  onChange: _onChange,
   placeholder,
   className,
 }: MultiSelectComboboxProps) {

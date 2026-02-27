@@ -309,7 +309,7 @@ export default function BlogListClient() {
   return (
     <div className="flex flex-col gap-12">
       {/* ── Hero Featured Article ──────────────────────────────── */}
-      <HeroArticle blog={hero} />
+      <HeroArticle blog={hero!} />
 
       {/* ── Popular Articles ───────────────────────────────────── */}
       {rest.length > 0 && (

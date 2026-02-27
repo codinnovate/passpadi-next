@@ -77,7 +77,7 @@ export default function LeaderboardPodium({
       {/* Podium row */}
       <div className="relative flex items-end justify-center gap-2 sm:gap-4">
         {ordered.map((entry, i) => {
-          const config = podiumConfig[i];
+          const config = podiumConfig[i]!;
           const name =
             entry?.user?.name ?? entry?.user?.username ?? "—";
           const initials = entry?.user ? getInitials(name) : "?";

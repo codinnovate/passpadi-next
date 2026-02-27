@@ -112,7 +112,7 @@ export default function SubjectPracticeConfig({
             <div className="px-1">
               <Slider
                 value={[duration]}
-                onValueChange={([val]) => setDuration(val)}
+                onValueChange={([val]) => setDuration(val!)}
                 min={5}
                 max={180}
                 step={5}

@@ -27,7 +27,7 @@ export default function CreateGroupDialog() {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [category, setCategory] = useState(categories[0]);
+  const [category, setCategory] = useState(categories[0] ?? "JAMB");
   const [createGroup, { isLoading }] = useCreateGroupMutation();
 
   async function handleSubmit(e: React.FormEvent) {
@@ -39,7 +39,7 @@ export default function CreateGroupDialog() {
       setOpen(false);
       setName("");
       setDescription("");
-      setCategory(categories[0]);
+      setCategory(categories[0] ?? "JAMB");
     } catch {
       // Error handled by RTK Query
     }
