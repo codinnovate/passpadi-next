@@ -1,0 +1,1 @@
+export const serverApp = process.env.NEXT_PUBLIC_SERVER

@@ -1,0 +1,11 @@
+export { default as HomePage } from "./HomePage";
+export { default as WelcomeSection } from "./WelcomeSection";
+export { default as QuickActions } from "./QuickActions";
+export { default as AIStudyRecommendation } from "./AIStudyRecommendation";
+export { default as AIChatTrigger } from "./AIChatTrigger";
+export { default as XPStreakCard } from "./XPStreakCard";
+export { default as LeaderboardPreview } from "./LeaderboardPreview";
+export { default as RecentFeedPosts } from "./RecentFeedPosts";
+export { default as LatestBlogArticles } from "./LatestBlogArticles";
+export { default as StudyGroupsPreview } from "./StudyGroupsPreview";
+export { default as GuestHero } from "./GuestHero";
