@@ -27,7 +27,7 @@ export default function GoogleSignInButton() {
           return;
         }
 
-        router.push("/");
+        router.push("/dashboard");
       } catch (err: any) {
         const message =
           err?.data?.message || err?.data?.error || "Google sign-in failed. Please try again.";

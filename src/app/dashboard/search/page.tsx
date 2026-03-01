@@ -222,7 +222,7 @@ function SearchPageContent() {
 }
 
 function BlogResult({ blog }: { blog: any }) {
-  const href = `/blog/${blog.blog_id || blog._id}`;
+  const href = `/dashboard/blog/${blog.blog_id || blog._id}`;
   return (
     <Link href={href} className="flex gap-4 p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
       {blog.banner && (
@@ -260,7 +260,7 @@ function QuestionResult({ question }: { question: any }) {
   const examName = question.examType?.name || "";
   return (
     <Link
-      href={`/cbt`}
+      href={`/dashboard/cbt`}
       className="flex gap-4 p-4 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
     >
       <div className="flex items-center justify-center size-12 rounded-lg bg-app-primary/10 text-app-primary shrink-0">

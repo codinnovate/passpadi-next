@@ -31,7 +31,7 @@ export default function LeaderboardPreview() {
             Top Students
           </CardTitle>
           <Link
-            href="/leaderboard"
+            href="/dashboard/leaderboard"
             className="flex items-center gap-1 text-xs font-medium text-app-primary hover:underline"
           >
             View all <ArrowRight size={12} />

@@ -4,14 +4,14 @@ import { BookOpen, MessageCircle, Mail } from "lucide-react";
 
 const footerLinks = {
   product: [
-    { label: "CBT Practice", href: "/cbt" },
-    { label: "Classroom", href: "/subject/mathematics" },
-    { label: "Leaderboard", href: "/leaderboard" },
-    { label: "Blog", href: "/blog" },
+    { label: "CBT Practice", href: "/dashboard/cbt" },
+    { label: "Classroom", href: "/dashboard/subject/mathematics" },
+    { label: "Leaderboard", href: "/dashboard/leaderboard" },
+    { label: "Blog", href: "/dashboard/blog" },
   ],
   company: [
-    { label: "About Us", href: "#" },
-    { label: "Feeds", href: "/feeds" },
+    { label: "About Us", href: "/about" },
+    { label: "Feeds", href: "/dashboard/feeds" },
     { label: "Contact", href: "mailto:passpadi.com@gmail.com" },
   ],
   legal: [
@@ -42,14 +42,14 @@ const Footer = () => {
                 <Mail size={16} />
               </a>
               <a
-                href="/feeds"
+                href="/dashboard/feeds"
                 className="rounded-full bg-gray-100 p-2 text-gray-500 transition-colors hover:bg-app-primary hover:text-white"
                 aria-label="Community"
               >
                 <MessageCircle size={16} />
               </a>
               <a
-                href="/blog"
+                href="/dashboard/blog"
                 className="rounded-full bg-gray-100 p-2 text-gray-500 transition-colors hover:bg-app-primary hover:text-white"
                 aria-label="Blog"
               >

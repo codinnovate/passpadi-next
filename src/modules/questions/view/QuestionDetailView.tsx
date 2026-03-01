@@ -253,7 +253,7 @@ export default function QuestionDetailView({
             className="mb-4 -ml-2 text-muted-foreground"
             asChild
           >
-            <Link href={`/subject/${subjectName}`}>
+            <Link href={`/dashboard/subject/${subjectName}`}>
               <ArrowLeft className="size-4" />
               Back to questions
             </Link>

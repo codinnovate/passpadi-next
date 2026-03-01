@@ -51,7 +51,7 @@ export default function StudyGroupsPreview() {
           {hasJoined ? "Your Study Groups" : "Discover Study Groups"}
         </h2>
         <Link
-          href="/study-groups"
+          href="/dashboard/study-groups"
           className="flex items-center gap-1 text-xs font-medium text-app-primary hover:underline"
         >
           See all <ArrowRight size={14} />

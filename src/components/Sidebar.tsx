@@ -30,33 +30,33 @@ import {
 type NavIcon = React.ComponentType<{ size?: number; className?: string }>;
 
 const mainNav: { title: string; href: string; icon: NavIcon }[] = [
-  { title: "Home", href: "/", icon: HomeIcon },
-  { title: "Feeds", href: "/feeds", icon: FeedIcon },
-  { title: "Blog", href: "/blog", icon: Newspaper },
-  { title: "CBT", href: "/cbt", icon: CbtIcon },
-  { title: "Leaderboard", href: "/leaderboard", icon: CupIcon },
+  { title: "Home", href: "/dashboard", icon: HomeIcon },
+  { title: "Feeds", href: "/dashboard/feeds", icon: FeedIcon },
+  { title: "Blog", href: "/dashboard/blog", icon: Newspaper },
+  { title: "CBT", href: "/dashboard/cbt", icon: CbtIcon },
+  { title: "Leaderboard", href: "/dashboard/leaderboard", icon: CupIcon },
 ];
 
 const groupsNav: { title: string; href: string; icon: NavIcon }[] = [
-  { title: "Study Groups", href: "/study-groups", icon: PeopleIcon },
-  { title: "Find Study Partner", href: "/feeds", icon: StudyPartnerIcon },
-  { title: "Events", href: "/feeds", icon: EventsIcon },
+  { title: "Study Groups", href: "/dashboard/study-groups", icon: PeopleIcon },
+  { title: "Find Study Partner", href: "/dashboard/feeds", icon: StudyPartnerIcon },
+  { title: "Events", href: "/dashboard/events", icon: EventsIcon },
 ];
 
 const subjectsNav: { title: string; href: string; icon: NavIcon }[] = [
-  { title: "Mathematics", href: "/subject/mathematics", icon: Calculator },
-  { title: "English", href: "/subject/english", icon: PenLine },
-  { title: "Physics", href: "/subject/physics", icon: Atom },
-  { title: "Chemistry", href: "/subject/chemistry", icon: FlaskConical },
-  { title: "Biology", href: "/subject/biology", icon: Dna },
-  { title: "Economics", href: "/subject/economics", icon: TrendingUp },
-  { title: "Government", href: "/subject/government", icon: Landmark },
-  { title: "Literature", href: "/subject/literature", icon: BookOpenText },
-  { title: "General Paper", href: "/subject/general-paper", icon: Globe },
+  { title: "Mathematics", href: "/dashboard/subject/mathematics", icon: Calculator },
+  { title: "English", href: "/dashboard/subject/english", icon: PenLine },
+  { title: "Physics", href: "/dashboard/subject/physics", icon: Atom },
+  { title: "Chemistry", href: "/dashboard/subject/chemistry", icon: FlaskConical },
+  { title: "Biology", href: "/dashboard/subject/biology", icon: Dna },
+  { title: "Economics", href: "/dashboard/subject/economics", icon: TrendingUp },
+  { title: "Government", href: "/dashboard/subject/government", icon: Landmark },
+  { title: "Literature", href: "/dashboard/subject/literature", icon: BookOpenText },
+  { title: "General Paper", href: "/dashboard/subject/general-paper", icon: Globe },
 ];
 
 function isActive(pathname: string, href: string) {
-  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  return href === "/dashboard" ? pathname === "/dashboard" : pathname.startsWith(href);
 }
 
 function NavItem({

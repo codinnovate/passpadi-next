@@ -79,7 +79,7 @@ export default function CbtPracticeSession() {
     const rawQuestions = sessionStorage.getItem("cbt-questions");
 
     if (!rawConfig || !rawQuestions) {
-      router.replace("/cbt");
+      router.replace("/dashboard/cbt");
       return;
     }
 
@@ -101,7 +101,7 @@ export default function CbtPracticeSession() {
       // Clear stored questions to prevent stale data on refresh
       sessionStorage.removeItem("cbt-questions");
     } catch {
-      router.replace("/cbt");
+      router.replace("/dashboard/cbt");
     }
   }, [router]);
 
@@ -293,7 +293,7 @@ export default function CbtPracticeSession() {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-20">
         <p className="text-muted-foreground">{error}</p>
-        <Button variant="outline" onClick={() => router.push("/cbt")}>
+        <Button variant="outline" onClick={() => router.push("/dashboard/cbt")}>
           <ArrowLeft className="size-4 mr-2" />
           Back to Setup
         </Button>
@@ -341,7 +341,7 @@ export default function CbtPracticeSession() {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => router.push("/cbt")}
+          onClick={() => router.push("/dashboard/cbt")}
           className="self-start gap-2"
         >
           <ArrowLeft className="size-4" />
@@ -423,7 +423,7 @@ export default function CbtPracticeSession() {
             Share to WhatsApp
           </Button>
           <Button
-            onClick={() => router.push("/cbt")}
+            onClick={() => router.push("/dashboard/cbt")}
             className="gap-2 h-11 bg-app-primary hover:bg-app-primary/90"
           >
             <RotateCcw className="size-4" />
@@ -670,7 +670,7 @@ export default function CbtPracticeSession() {
     return (
       <div className="flex flex-col items-center justify-center gap-4 py-20">
         <p className="text-muted-foreground">No questions available.</p>
-        <Button variant="outline" onClick={() => router.push("/cbt")}>
+        <Button variant="outline" onClick={() => router.push("/dashboard/cbt")}>
           <ArrowLeft className="size-4 mr-2" />
           Back to Setup
         </Button>

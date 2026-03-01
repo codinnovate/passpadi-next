@@ -185,7 +185,7 @@ export default function BlogDetailClient({ blogId }: { blogId: string }) {
         <p className="text-muted-foreground mb-4">
           This article could not be found.
         </p>
-        <Link href="/blog">
+        <Link href="/dashboard/blog">
           <Button variant="outline">Back to Blog</Button>
         </Link>
       </div>
@@ -211,7 +211,7 @@ export default function BlogDetailClient({ blogId }: { blogId: string }) {
     <article>
       {/* Breadcrumb */}
       <Link
-        href="/blog"
+        href="/dashboard/blog"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
       >
         <ArrowLeft size={16} />
@@ -333,7 +333,7 @@ export default function BlogDetailClient({ blogId }: { blogId: string }) {
 
       {/* Back to blog CTA */}
       <div className="mt-8 text-center">
-        <Link href="/blog">
+        <Link href="/dashboard/blog">
           <Button variant="outline" className="rounded-full px-6">
             <ArrowLeft size={16} className="mr-2" />
             More Articles

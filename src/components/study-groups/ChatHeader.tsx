@@ -32,14 +32,14 @@ export default function ChatHeader({
   return (
     <div className="flex items-center gap-3 border-b border-gray-100 dark:border-white/10 bg-white dark:bg-gray-950 px-3 py-3">
       <Link
-        href="/study-groups"
+        href="/dashboard/study-groups"
         className="shrink-0 rounded-lg p-1.5 text-muted-foreground hover:bg-[#F5F5F7] dark:hover:bg-white/10 transition-colors md:hidden"
       >
         <ArrowLeft size={20} />
       </Link>
 
       <Link
-        href="/study-groups"
+        href="/dashboard/study-groups"
         className="hidden md:block shrink-0 rounded-lg p-1.5 text-muted-foreground hover:bg-[#F5F5F7] dark:hover:bg-white/10 transition-colors"
       >
         <ArrowLeft size={20} />

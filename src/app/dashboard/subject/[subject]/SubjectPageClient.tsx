@@ -75,7 +75,7 @@ export default function SubjectPageClient({
               return (
                 <Link
                   key={sub._id}
-                  href={`/subject/${sub.subject_id || sub._id}`}
+                  href={`/dashboard/subject/${sub.subject_id || sub._id}`}
                   className={`flex items-center px-4 py-2.5 text-sm font-medium transition-colors ${
                     isActive
                       ? "bg-app-primary/10 text-app-primary"

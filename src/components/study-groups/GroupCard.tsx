@@ -16,7 +16,7 @@ export default function GroupCard({ group }: { group: GroupWithLastMessage }) {
 
   return (
     <Link
-      href={`/study-groups/${group._id}`}
+      href={`/dashboard/study-groups/${group._id}`}
       className="flex items-center gap-3 rounded-xl px-3 py-3 transition-colors hover:bg-[#F5F5F7] dark:hover:bg-white/5"
     >
       <Avatar className="size-12 shrink-0 rounded-xl">

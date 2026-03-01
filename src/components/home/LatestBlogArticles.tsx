@@ -60,7 +60,7 @@ export default function LatestBlogArticles() {
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Latest Articles</h2>
         <Link
-          href="/blog"
+          href="/dashboard/blog"
           className="flex items-center gap-1 text-xs font-medium text-app-primary hover:underline"
         >
           See all <ArrowRight size={14} />

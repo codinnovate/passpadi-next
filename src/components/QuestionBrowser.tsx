@@ -471,7 +471,7 @@ export default function QuestionBrowser({
                     )}
                   </button>
                   <Link
-                    href={`/subject/${subjectSlug || "q"}/${question._id}`}
+                    href={`/dashboard/subject/${subjectSlug || "q"}/${question._id}`}
                     className="inline-flex items-center gap-1 text-sm font-medium text-app-primary hover:underline"
                   >
                     View Details →

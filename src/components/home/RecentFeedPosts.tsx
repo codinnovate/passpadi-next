@@ -62,7 +62,7 @@ export default function RecentFeedPosts({
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Recent Posts</h2>
         <Link
-          href="/feeds"
+          href="/dashboard/feeds"
           className="flex items-center gap-1 text-xs font-medium text-app-primary hover:underline"
         >
           See all <ArrowRight size={14} />

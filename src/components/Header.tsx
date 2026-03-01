@@ -29,7 +29,7 @@ const Header = () => {
     e.preventDefault();
     const trimmed = searchQuery.trim();
     if (trimmed) {
-      router.push(`/search?q=${encodeURIComponent(trimmed)}`);
+      router.push(`/dashboard/search?q=${encodeURIComponent(trimmed)}`);
       setSearchOpen(false);
     }
   };
@@ -116,7 +116,7 @@ const Header = () => {
                 </button>
 
                 {/* User Avatar */}
-                <Link href="/profile">
+                <Link href="/dashboard/profile">
                   <Avatar className="size-8 ring-2 ring-gray-100 transition-all hover:ring-app-primary/30 dark:ring-white/10">
                     <AvatarImage
                       src={user?.personal_info?.profile_img || `https://api.dicebear.com/9.x/initials/svg?seed=${initials}`}

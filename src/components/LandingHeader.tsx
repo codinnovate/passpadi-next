@@ -38,10 +38,10 @@ const LandingHeader = () => {
         {/* Right */}
         <div className="flex items-center gap-3">
           <Link
-            href="/download"
+            href="/dashboard"
             className="hidden rounded-full bg-app-secondary px-5 py-2 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-[0.97] sm:inline-flex"
           >
-            Download Now
+            Get Started
           </Link>
 
           {/* Mobile menu toggle */}

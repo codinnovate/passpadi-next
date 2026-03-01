@@ -180,7 +180,7 @@ export default function CbtDashboard() {
         JSON.stringify(shuffleArray(allQuestions))
       );
 
-      router.push("/cbt/practice");
+      router.push("/dashboard/cbt/practice");
     } catch {
       setPrefetchError("Failed to load questions. Please try again.");
       setIsPrefetching(false);

@@ -17,10 +17,10 @@ import { HomeIcon, FeedIcon, CbtIcon, CupIcon } from "@/assets/icons";
 type TabIcon = React.ComponentType<{ size?: number; className?: string }>;
 
 const tabs: { title: string; href: string; icon: TabIcon }[] = [
-  { title: "Home", href: "/", icon: HomeIcon },
-  { title: "Feeds", href: "/feeds", icon: FeedIcon },
-  { title: "CBT", href: "/cbt", icon: CbtIcon },
-  { title: "Board", href: "/leaderboard", icon: CupIcon },
+  { title: "Home", href: "/dashboard", icon: HomeIcon },
+  { title: "Feeds", href: "/dashboard/feeds", icon: FeedIcon },
+  { title: "CBT", href: "/dashboard/cbt", icon: CbtIcon },
+  { title: "Board", href: "/dashboard/leaderboard", icon: CupIcon },
 ];
 
 export default function BottomNav() {
@@ -33,8 +33,8 @@ export default function BottomNav() {
         <div className="mx-auto flex h-14 max-w-lg items-center justify-around">
           {tabs.map((tab) => {
             const active =
-              tab.href === "/"
-                ? pathname === "/"
+              tab.href === "/dashboard"
+                ? pathname === "/dashboard"
                 : pathname.startsWith(tab.href);
             const Icon = tab.icon;
 

@@ -19,7 +19,7 @@ export default function AIStudyRecommendation() {
             your overall score.
           </p>
           <Button asChild size="sm" className="mt-3 rounded-full h-8 px-4 text-xs">
-            <Link href="/cbt">Study Now</Link>
+            <Link href="/dashboard/cbt">Study Now</Link>
           </Button>
         </div>
       </div>

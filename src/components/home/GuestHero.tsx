@@ -53,7 +53,7 @@ export default function GuestHero() {
             </Link>
           </Button>
           <Button asChild variant="outline" size="lg" className="rounded-full px-8">
-            <Link href="/blog">Explore Blog</Link>
+            <Link href="/dashboard/blog">Explore Blog</Link>
           </Button>
         </div>
       </div>

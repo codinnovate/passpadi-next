@@ -12,7 +12,7 @@ const Privacy = () => {
         <h1 className="text-3xl font-bold text-app-secondary">
           Privacy Policy
         </h1>
-        <p className="mt-2 text-sm text-gray-500">Last updated: February 27, 2026</p>
+        <p className="mt-2 text-sm text-gray-500">Last updated: March 1, 2026</p>
       </div>
 
       <div className="flex flex-col gap-8 text-[15px] leading-relaxed text-gray-600">
@@ -25,6 +25,7 @@ const Privacy = () => {
           information in accordance with this Privacy Policy.
         </p>
 
+        {/* ── Definitions ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Interpretation and Definitions
@@ -49,9 +50,15 @@ const Privacy = () => {
               access our Service or parts of our Service.
             </li>
             <li>
+              <strong>Application</strong> refers to 90percent, the software
+              program provided by the Company, available for download on mobile
+              devices through the Apple App Store, Google Play Store, or
+              accessible via the Website.
+            </li>
+            <li>
               <strong>Company</strong> (referred to as either &quot;the
               Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
-              this Agreement) refers to 90percent.
+              this Agreement) refers to 90percent LTD.
             </li>
             <li>
               <strong>Cookies</strong> are small files placed on your computer,
@@ -71,7 +78,8 @@ const Privacy = () => {
               an identified or identifiable individual.
             </li>
             <li>
-              <strong>Service</strong> refers to the Website.
+              <strong>Service</strong> refers to the Application and/or the
+              Website, individually or collectively.
             </li>
             <li>
               <strong>Service Provider</strong> means any natural or legal person
@@ -85,10 +93,10 @@ const Privacy = () => {
             <li>
               <strong>Website</strong> refers to 90percent, accessible from{" "}
               <a
-                href="https://90percent.com"
+                href="https://90percent.app"
                 className="text-app-primary hover:underline"
               >
-                https://90percent.com
+                https://90percent.app
               </a>
             </li>
             <li>
@@ -99,6 +107,7 @@ const Privacy = () => {
           </ul>
         </section>
 
+        {/* ── Data Collection ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Collecting and Using Your Personal Data
@@ -115,6 +124,7 @@ const Privacy = () => {
           <ul className="ml-5 list-disc space-y-1.5">
             <li>Email address</li>
             <li>First name and last name</li>
+            <li>Profile photo (if provided)</li>
             <li>Usage Data</li>
           </ul>
         </section>
@@ -139,6 +149,40 @@ const Privacy = () => {
           </p>
         </section>
 
+        {/* ── Mobile App Data ── */}
+        <section>
+          <h3 className="mb-2 font-semibold text-app-secondary">
+            Information Collected While Using the Application
+          </h3>
+          <p className="mb-3">
+            While using our Application, in order to provide features of our
+            Application, we may collect, with your prior permission:
+          </p>
+          <ul className="ml-5 list-disc space-y-1.5">
+            <li>
+              <strong>Device identifiers</strong> such as your advertising ID
+              (IDFA on iOS, GAID on Android), device model, operating system
+              version, and app version.
+            </li>
+            <li>
+              <strong>Push notification token</strong> to send you study
+              reminders, event notifications, and other updates. You may opt out
+              at any time through your device settings.
+            </li>
+            <li>
+              <strong>Study activity data</strong> including questions answered,
+              scores, time spent studying, and subjects selected.
+            </li>
+          </ul>
+          <p className="mt-3">
+            We use this information to provide and improve features of the
+            Service, personalise your experience, and deliver relevant content.
+            You can enable or disable access to this information at any time
+            through your Device settings.
+          </p>
+        </section>
+
+        {/* ── Third-Party Social Login ── */}
         <section>
           <h3 className="mb-2 font-semibold text-app-secondary">
             Information from Third-Party Social Media Services
@@ -146,14 +190,16 @@ const Privacy = () => {
           <p>
             The Company allows you to create an account and log in to use the
             Service through Third-party Social Media Services such as Google. If
-            you decide to register through a Third-Party Social Media Service, we
-            may collect personal data that is already associated with your
-            Third-Party Social Media Service&apos;s account, such as your name,
-            your email address, your activities or your contact list associated
-            with that account.
+            you decide to register through or grant us access to a Third-Party
+            Social Media Service, we may collect personal data that is already
+            associated with your Third-Party Social Media Service&apos;s
+            account, such as your name, your email address, and your profile
+            picture associated with that account. This data is used solely to
+            create and manage your 90percent account.
           </p>
         </section>
 
+        {/* ── Cookies & Tracking ── */}
         <section>
           <h3 className="mb-2 font-semibold text-app-secondary">
             Tracking Technologies and Cookies
@@ -175,9 +221,83 @@ const Privacy = () => {
               that permit the Company to count users who have visited those pages
               or opened an email.
             </li>
+            <li>
+              <strong>Local Storage:</strong> We may use local storage
+              technologies (such as HTML5) to store user preferences and
+              session information.
+            </li>
           </ul>
         </section>
 
+        {/* ── Advertising ── */}
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-app-secondary">
+            Advertising
+          </h2>
+          <p className="mb-3">
+            We may use third-party advertising companies to serve ads when you
+            visit our Service. These companies may use information about your
+            visits to our Website and other websites and applications (not
+            including your name, address, email address, or telephone number) in
+            order to provide advertisements about goods and services of interest
+            to you.
+          </p>
+
+          <h3 className="mb-2 font-semibold text-app-secondary">
+            Google AdSense &amp; DoubleClick Cookie
+          </h3>
+          <p className="mb-3">
+            Google, as a third-party vendor, uses cookies to serve ads on our
+            Service. Google&apos;s use of the DART cookie enables it to serve ads
+            to our users based on previous visits to our Service and other
+            websites. You may opt out of the use of the DART cookie by visiting
+            the{" "}
+            <a
+              href="https://policies.google.com/technologies/ads"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-app-primary hover:underline"
+            >
+              Google ad and content network privacy policy
+            </a>
+            .
+          </p>
+
+          <h3 className="mb-2 font-semibold text-app-secondary">
+            Google AdMob (Mobile Advertising)
+          </h3>
+          <p className="mb-3">
+            Our mobile Application may use Google AdMob to serve advertisements.
+            AdMob may collect and use data including your device&apos;s
+            advertising identifier, IP address, and usage data to deliver
+            personalised ads. You can opt out of personalised advertising by
+            adjusting your device settings:
+          </p>
+          <ul className="ml-5 list-disc space-y-1.5">
+            <li>
+              <strong>iOS:</strong> Settings &gt; Privacy &amp; Security &gt;
+              Tracking, and disable &quot;Allow Apps to Request to Track&quot;.
+            </li>
+            <li>
+              <strong>Android:</strong> Settings &gt; Google &gt; Ads, and enable
+              &quot;Opt out of Ads Personalisation&quot;.
+            </li>
+          </ul>
+          <p className="mt-3">
+            For more information on how Google uses your data, please visit{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-app-primary hover:underline"
+            >
+              Google&apos;s Privacy Policy
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* ── Use of Data ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Use of Your Personal Data
@@ -202,9 +322,13 @@ const Privacy = () => {
               For data analysis, identifying usage trends, and improving the
               Service
             </li>
+            <li>
+              To deliver targeted advertising and measure its effectiveness
+            </li>
           </ul>
         </section>
 
+        {/* ── Sharing ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Sharing Your Personal Data
@@ -216,6 +340,12 @@ const Privacy = () => {
             <li>
               <strong>With Service Providers:</strong> To monitor and analyze the
               use of our Service
+            </li>
+            <li>
+              <strong>With advertising partners:</strong> We may share
+              information with third-party advertising partners (including Google
+              AdSense and AdMob) to deliver and measure advertising on the
+              Service
             </li>
             <li>
               <strong>For business transfers:</strong> In connection with any
@@ -236,6 +366,7 @@ const Privacy = () => {
           </ul>
         </section>
 
+        {/* ── Retention ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Retention of Your Personal Data
@@ -249,20 +380,40 @@ const Privacy = () => {
           </p>
         </section>
 
+        {/* ── Deletion ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Delete Your Personal Data
           </h2>
-          <p>
+          <p className="mb-3">
             You have the right to delete or request that we assist in deleting
-            the Personal Data that we have collected about you. You may update,
-            amend, or delete your information at any time by signing in to your
-            Account and visiting the account settings section. You may also
-            contact us to request access to, correct, or delete any personal
-            information that you have provided to us.
+            the Personal Data that we have collected about you.
+          </p>
+          <ul className="ml-5 list-disc space-y-1.5">
+            <li>
+              <strong>In-app:</strong> Sign in to your Account, go to Profile
+              &gt; Settings, and select &quot;Delete Account&quot;. Your account
+              and associated data will be permanently removed within 30 days.
+            </li>
+            <li>
+              <strong>By email:</strong> Contact us at{" "}
+              <a
+                href="mailto:passpadi.com@gmail.com"
+                className="text-app-primary hover:underline"
+              >
+                passpadi.com@gmail.com
+              </a>{" "}
+              with a deletion request. We will process your request within 30
+              days.
+            </li>
+          </ul>
+          <p className="mt-3">
+            Please note that we may need to retain certain information to comply
+            with legal obligations or to resolve disputes.
           </p>
         </section>
 
+        {/* ── Security ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Security of Your Personal Data
@@ -276,6 +427,7 @@ const Privacy = () => {
           </p>
         </section>
 
+        {/* ── Children ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Children&apos;s Privacy
@@ -285,10 +437,64 @@ const Privacy = () => {
             knowingly collect personally identifiable information from anyone
             under the age of 13. If you are a parent or guardian and you are
             aware that your child has provided us with Personal Data, please
-            contact us.
+            contact us. If we become aware that we have collected Personal Data
+            from anyone under the age of 13 without verification of parental
+            consent, we take steps to remove that information from our servers.
           </p>
         </section>
 
+        {/* ── GDPR / International ── */}
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-app-secondary">
+            Your Rights Under Data Protection Laws
+          </h2>
+          <p className="mb-3">
+            Depending on your location, you may have certain rights regarding
+            your Personal Data, including:
+          </p>
+          <ul className="ml-5 list-disc space-y-1.5">
+            <li>
+              <strong>Right of access:</strong> You can request copies of your
+              Personal Data.
+            </li>
+            <li>
+              <strong>Right to rectification:</strong> You can ask us to correct
+              inaccurate or incomplete information.
+            </li>
+            <li>
+              <strong>Right to erasure:</strong> You can ask us to delete your
+              Personal Data.
+            </li>
+            <li>
+              <strong>Right to restrict processing:</strong> You can ask us to
+              limit how we use your data.
+            </li>
+            <li>
+              <strong>Right to data portability:</strong> You can request a copy
+              of your data in a machine-readable format.
+            </li>
+            <li>
+              <strong>Right to object:</strong> You can object to our processing
+              of your Personal Data.
+            </li>
+            <li>
+              <strong>Right to withdraw consent:</strong> Where processing is
+              based on consent, you may withdraw it at any time.
+            </li>
+          </ul>
+          <p className="mt-3">
+            To exercise any of these rights, please contact us at{" "}
+            <a
+              href="mailto:passpadi.com@gmail.com"
+              className="text-app-primary hover:underline"
+            >
+              passpadi.com@gmail.com
+            </a>
+            . We will respond to your request within 30 days.
+          </p>
+        </section>
+
+        {/* ── External Links ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Links to Other Websites
@@ -302,6 +508,7 @@ const Privacy = () => {
           </p>
         </section>
 
+        {/* ── Changes ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Changes to this Privacy Policy
@@ -314,6 +521,7 @@ const Privacy = () => {
           </p>
         </section>
 
+        {/* ── Contact ── */}
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
             Contact Us

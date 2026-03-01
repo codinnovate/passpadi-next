@@ -6,7 +6,7 @@ import type { RootState } from "@/store/store";
 import { useRecordDailyActivityMutation } from "@/store/api";
 
 import WelcomeSection from "./WelcomeSection";
-import QuickActions from "./QuickActions";
+import ActivityStreak from "./ActivityStreak";
 import AIStudyRecommendation from "./AIStudyRecommendation";
 import XPStreakCard from "./XPStreakCard";
 import RecentFeedPosts from "./RecentFeedPosts";
@@ -45,7 +45,7 @@ export default function HomePage() {
       <div className="grid grid-cols-1 md:grid-cols-[1fr_340px] gap-6">
         {/* Main content */}
         <div className="flex flex-col gap-6 min-w-0">
-          <QuickActions />
+          <ActivityStreak />
           <AIStudyRecommendation />
           <RecentFeedPosts currentUserId={user?._id} />
 

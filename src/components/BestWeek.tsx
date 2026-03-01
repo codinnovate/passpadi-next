@@ -23,7 +23,7 @@ async function BestWeek() {
     <>
     { data ? (
       <Link
-      href={`/article/${data?.[0]?.blog_id}`}
+      href={`/dashboard/blog/${data?.[0]?.blog_id}`}
       className="flex flex-col gap-3 w-full h-full md:min-w-[67%]">
         <Image
          src={data?.[0]?.banner} 

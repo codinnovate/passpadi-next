@@ -40,7 +40,7 @@ export default function LoginForm() {
         return;
       }
 
-      router.push("/");
+      router.push("/dashboard");
     } catch (err: any) {
       const message =
         err?.data?.message || err?.data?.error || "Login failed. Please try again.";

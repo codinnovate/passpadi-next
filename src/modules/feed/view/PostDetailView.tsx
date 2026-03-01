@@ -101,7 +101,7 @@ export default function PostDetailView({ postId }: PostDetailViewProps) {
 
   const handleDelete = () => {
     deletePost(postId);
-    router.push("/feeds");
+    router.push("/dashboard/feeds");
   };
 
   const handleReplySubmit = async (content: string, image?: string) => {

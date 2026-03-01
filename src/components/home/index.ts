@@ -1,6 +1,7 @@
 export { default as HomePage } from "./HomePage";
 export { default as WelcomeSection } from "./WelcomeSection";
 export { default as QuickActions } from "./QuickActions";
+export { default as ActivityStreak } from "./ActivityStreak";
 export { default as AIStudyRecommendation } from "./AIStudyRecommendation";
 export { default as AIChatTrigger } from "./AIChatTrigger";
 export { default as XPStreakCard } from "./XPStreakCard";

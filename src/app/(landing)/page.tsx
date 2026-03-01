@@ -14,10 +14,10 @@ export default function LandingPage() {
   return (
     <>
       <Hero />
-      <Features />
-      <SubjectPractice />
-      <Reviews />
-      <DownloadCTA />
+      {/* <Features /> */}
+      {/* <SubjectPractice /> */}
+      {/* <Reviews /> */}
+      {/* <DownloadCTA /> */}
     </>
   );
 }

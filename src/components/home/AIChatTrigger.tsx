@@ -22,7 +22,7 @@ export default function AIChatTrigger() {
         className="w-full rounded-full h-9 text-xs font-semibold bg-white text-app-primary hover:bg-white/90"
         asChild
       >
-        <Link href="/ai">Chat with AI</Link>
+        <Link href="/dashboard/ai">Chat with AI</Link>
       </Button>
     </div>
   );

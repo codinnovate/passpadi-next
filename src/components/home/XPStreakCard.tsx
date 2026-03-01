@@ -105,7 +105,7 @@ export default function XPStreakCard() {
             <span className="text-[10px] text-muted-foreground">This week</span>
           </div>
           <Link
-            href="/leaderboard"
+            href="/dashboard/leaderboard"
             className="flex items-center gap-1 text-xs font-medium text-app-primary hover:underline"
           >
             View Details <ArrowRight size={12} />
