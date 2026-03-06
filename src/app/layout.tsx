@@ -131,6 +131,11 @@ export default function RootLayout({
         integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk"
         crossOrigin="anonymous"
       />
+      <head>
+
+
+
+      </head>
       <body className="flex min-h-screen flex-col">
         <Providers>{children}</Providers>
       </body>
