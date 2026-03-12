@@ -15,6 +15,7 @@ import {
   Calculator,
   Globe,
   Newspaper,
+  Gamepad2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
@@ -35,6 +36,7 @@ const mainNav: { title: string; href: string; icon: NavIcon }[] = [
   { title: "Blog", href: "/dashboard/blog", icon: Newspaper },
   { title: "CBT", href: "/dashboard/cbt", icon: CbtIcon },
   { title: "Leaderboard", href: "/dashboard/leaderboard", icon: CupIcon },
+  { title: "Games", href: "/dashboard/games", icon: Gamepad2 },
 ];
 
 const groupsNav: { title: string; href: string; icon: NavIcon }[] = [

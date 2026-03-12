@@ -1,5 +1,6 @@
 import FeaturesPart1 from "../ui/features-part1";
-import FeaturesPart2 from "../ui/features-part2";
+// import FeaturesPart2 from "../ui/features-part2";
+// import FeaturesPart3 from "../ui/features-part3";
 
 export default function Features() {
   return (
@@ -15,7 +16,7 @@ export default function Features() {
         {/* Part 1 */}
         <FeaturesPart1 />
         {/* Part 2  */}
-        <FeaturesPart2 />
+        {/* <FeaturesPart2 /> */}
 
 
      

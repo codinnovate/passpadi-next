@@ -1,7 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback, useMemo } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useGetCbtExamByIdQuery, useGetCbtEnrollmentsQuery, useStartCbtAttemptMutation, useCreateReportMutation } from "@/store/api";
+import { useSelector } from "react-redux";
+import { format } from "date-fns";
+import { toast } from "sonner";
 import {
   Clock,
   ChevronLeft,
@@ -15,7 +19,9 @@ import {
   Share2,
   RotateCcw,
   Trophy,
+  AlertTriangle,
   BookOpen,
+  FlagTriangleLeft,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,6 +31,8 @@ import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { SUBJECTS } from "./cbt-constants";
 import type { CbtSessionInput } from "@/lib/validations/cbt";
+
+// ... existing code ...
 
 declare global {
   interface Window {
@@ -56,58 +64,152 @@ const OPTION_LABELS = ["A", "B", "C", "D", "E", "F"];
 
 export default function CbtPracticeSession() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const examId = searchParams.get("examId");
+  const mode = searchParams.get("mode");
+
   const [config, setConfig] = useState<CbtSessionInput | null>(null);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  
+  // Mock Exam Logic
+  const { data: examData } = useGetCbtExamByIdQuery(examId || "", {
+      skip: !examId || mode !== "mock"
+  });
+  const { data: enrollmentData } = useGetCbtEnrollmentsQuery(examId || "", {
+      skip: !examId || mode !== "mock"
+  });
+  const user = useSelector((state: any) => state.auth.user);
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [timeLeft, setTimeLeft] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [activeSubject, setActiveSubject] = useState<string | null>(null);
   const [showConfirmFinish, setShowConfirmFinish] = useState(false);
+  const [warningCount, setWarningCount] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [showWarningModal, setShowWarningModal] = useState(false);
+  const [flaggedQuestions, setFlaggedQuestions] = useState<Set<string>>(new Set());
   const questionCardRef = useRef<HTMLDivElement>(null);
   const reviewRef = useRef<HTMLDivElement>(null);
+  const questionMapRef = useRef<HTMLDivElement>(null);
 
-  // Read session config + pre-fetched questions from sessionStorage
+  // Auto-scroll question map to current index
+  useEffect(() => {
+    if (questionMapRef.current) {
+      const currentElement = questionMapRef.current.children[currentIndex] as HTMLElement;
+      if (currentElement) {
+        currentElement.scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }
+  }, [currentIndex]);
   const initialized = useRef(false);
   useEffect(() => {
     if (initialized.current) return;
-    initialized.current = true;
+    
+    // Mode: Standard Practice (from sessionStorage)
+    if (mode !== "mock") {
+        initialized.current = true;
+        const rawConfig = sessionStorage.getItem("cbt-session");
+        const rawQuestions = sessionStorage.getItem("cbt-questions");
 
-    const rawConfig = sessionStorage.getItem("cbt-session");
-    const rawQuestions = sessionStorage.getItem("cbt-questions");
+        if (!rawConfig || !rawQuestions) {
+          router.replace("/dashboard/cbt");
+          return;
+        }
 
-    if (!rawConfig || !rawQuestions) {
-      router.replace("/dashboard/cbt");
-      return;
+        try {
+          const parsedConfig: CbtSessionInput = JSON.parse(rawConfig);
+          const parsedQuestions: Question[] = JSON.parse(rawQuestions);
+
+          if (parsedQuestions.length === 0) {
+            setError("No questions found. Please go back and try again.");
+            setLoading(false);
+            return;
+          }
+
+          setConfig(parsedConfig);
+          setQuestions(parsedQuestions);
+          setTimeLeft(parsedConfig.timeLimit * 60);
+          setLoading(false);
+          sessionStorage.removeItem("cbt-questions");
+        } catch {
+          router.replace("/dashboard/cbt");
+        }
     }
+  }, [router, mode]);
 
-    try {
-      const parsedConfig: CbtSessionInput = JSON.parse(rawConfig);
-      const parsedQuestions: Question[] = JSON.parse(rawQuestions);
+  const [startAttempt] = useStartCbtAttemptMutation();
+  const [createReport, { isLoading: isReporting }] = useCreateReportMutation();
 
-      if (parsedQuestions.length === 0) {
-        setError("No questions found. Please go back and try again.");
-        setLoading(false);
-        return;
+  // Mode: Mock Exam Initialization
+  useEffect(() => {
+      if (mode === "mock" && examId && examData?.data && enrollmentData?.data && !initialized.current) {
+          const exam = examData.data;
+          const enrollments = enrollmentData.data;
+          
+          // Find user enrollment
+          const myEnrollment = enrollments.find((e: any) => e.user?._id === user?._id || e.user === user?._id);
+          
+          if (!myEnrollment) {
+              setError("You are not enrolled in this exam.");
+              setLoading(false);
+              return;
+          }
+
+          // Start attempt (fetch questions based on enrolled subjects)
+          const initAttempt = async () => {
+              try {
+                  const res = await startAttempt({ examId, totalQuestions: 0 }).unwrap(); // totalQuestions ignored by backend for mock
+                  if (res?.data?.questions) {
+                      // Map backend questions to frontend format
+                      const mappedQuestions: Question[] = res.data.questions.map((q: any) => ({
+                          _id: q.question._id,
+                          question: q.question.question,
+                          options: q.question.options,
+                          answer: q.question.answer,
+                          answerDetail: q.question.answerDetail,
+                          image: q.question.image,
+                          examYear: q.question.examYear,
+                          subjectName: q.subject?.name || "Subject"
+                      }));
+                      
+                      setQuestions(mappedQuestions);
+                      
+                      // Set config based on exam details
+                      setConfig({
+                          examType: exam.examType.name.toLowerCase() as any,
+                          subjects: [], // Not used for display in same way
+                          questionsPerSubject: 0, // Placeholder
+                          timeLimit: exam.durationMinutes,
+                          mode: "exam"
+                      });
+                      
+                      setTimeLeft(exam.durationMinutes * 60);
+                      initialized.current = true;
+                  } else {
+                       setError("Failed to load questions.");
+                  }
+              } catch (err: any) {
+                  setError(err?.data?.message || "Failed to start exam session.");
+              } finally {
+                  setLoading(false);
+              }
+          };
+          
+          initAttempt();
       }
-
-      setConfig(parsedConfig);
-      setQuestions(parsedQuestions);
-      setTimeLeft(parsedConfig.timeLimit * 60);
-      setLoading(false);
-
-      // Clear stored questions to prevent stale data on refresh
-      sessionStorage.removeItem("cbt-questions");
-    } catch {
-      router.replace("/dashboard/cbt");
-    }
-  }, [router]);
+  }, [mode, examId, examData, enrollmentData, user, startAttempt]);
 
   // Timer countdown
   useEffect(() => {
-    if (submitted || loading || timeLeft <= 0) return;
+    if (submitted || loading || timeLeft <= 0 || isPaused) return;
     const interval = setInterval(() => {
       setTimeLeft((t) => {
         if (t <= 1) {
@@ -118,7 +220,65 @@ export default function CbtPracticeSession() {
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, [submitted, loading, timeLeft]);
+  }, [submitted, loading, timeLeft, isPaused]);
+
+  // Security Measures: Prevent tab switch & copying
+  useEffect(() => {
+    if (loading || submitted || mode !== "mock") return;
+
+    const handleViolation = () => {
+       if (submitted) return;
+       setIsPaused(true);
+       
+       setWarningCount(prev => {
+           const newCount = prev + 1;
+           if (newCount > 3) {
+               setSubmitted(true); // Auto submit
+               return newCount;
+           }
+           setShowWarningModal(true);
+           return newCount;
+       });
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        handleViolation();
+      }
+    };
+
+    const handleBlur = () => {
+      handleViolation();
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    window.addEventListener("blur", handleBlur);
+
+    // Prevent context menu
+    const handleContextMenu = (e: Event) => e.preventDefault();
+    document.addEventListener("contextmenu", handleContextMenu);
+    
+    // Prevent copy/cut/paste
+    const handleCopy = (e: Event) => { e.preventDefault(); return false; };
+    document.addEventListener("copy", handleCopy);
+    document.addEventListener("cut", handleCopy);
+    document.addEventListener("paste", handleCopy);
+
+    // Prevent selection
+    document.body.style.userSelect = "none";
+    document.body.style.webkitUserSelect = "none";
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("blur", handleBlur);
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("copy", handleCopy);
+      document.removeEventListener("cut", handleCopy);
+      document.removeEventListener("paste", handleCopy);
+      document.body.style.userSelect = "";
+      document.body.style.webkitUserSelect = "";
+    };
+  }, [loading, submitted, mode]);
 
   // Filtered questions by active subject
   const filteredQuestions = useMemo(() => {
@@ -241,6 +401,20 @@ export default function CbtPracticeSession() {
     setCurrentIndex(0);
   };
 
+  const handleFlag = async () => {
+    if (!currentQuestion || flaggedQuestions.has(currentQuestion._id)) return;
+    try {
+      await createReport({
+        questionId: currentQuestion._id,
+        description: "Flagged during CBT session",
+      }).unwrap();
+      setFlaggedQuestions((prev) => new Set(prev).add(currentQuestion._id));
+      toast.success("Question flagged for review!");
+    } catch (err: any) {
+      toast.error(err?.data?.message || "Failed to flag question");
+    }
+  };
+
   // Calculate results
   const results = useMemo(() => {
     if (!submitted) return null;
@@ -276,7 +450,12 @@ export default function CbtPracticeSession() {
     return { correct, wrong, skipped, total: questions.length, perSubject };
   }, [submitted, questions, answers]);
 
-  const subjectNames = config?.subjects.map((s) => s.name) ?? [];
+  const subjectNames = useMemo(() => {
+    if (config?.mode === "exam") {
+        return Array.from(new Set(questions.map(q => q.subjectName)));
+    }
+    return config?.subjects.map((s) => s.name) ?? [];
+  }, [config, questions]);
 
   // --- Loading state ---
   if (loading) {
@@ -765,19 +944,40 @@ export default function CbtPracticeSession() {
       {/* Question card */}
       <Card className="shadow-none" ref={questionCardRef}>
         <CardContent className="pt-6">
-          <div className="flex items-center gap-2 mb-4">
-            <Badge variant="secondary" className="text-xs">
-              Q{currentIndex + 1} of {filteredQuestions.length}
-            </Badge>
-            <Badge variant="outline" className="text-xs">
-              {currentQuestion.subjectName}
-            </Badge>
-            {currentQuestion.examYear && (
-              <Badge variant="outline" className="text-xs">
-                {currentQuestion.examYear}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <Badge variant="secondary" className="text-xs">
+                Q{currentIndex + 1} of {filteredQuestions.length}
               </Badge>
-            )}
-          </div>
+              <Badge variant="outline" className="text-xs">
+                {currentQuestion.subjectName}
+              </Badge>
+              {currentQuestion.examYear && (
+                <Badge variant="outline" className="text-xs">
+                  {currentQuestion.examYear}
+                </Badge>
+              )}
+            </div>
+             <Button
+               variant="ghost"
+               size="sm"
+               onClick={handleFlag}
+               disabled={isReporting || flaggedQuestions.has(currentQuestion._id)}
+               className={cn(
+                 "h-8 gap-1.5 text-xs shrink-0",
+                 flaggedQuestions.has(currentQuestion._id) 
+                   ? "text-neutral-400 cursor-default" 
+                   : "text-red-500 hover:text-red-600 hover:bg-red-50"
+               )}
+             >
+               {isReporting ? (
+                 <Loader2 className="size-3.5 animate-spin" />
+               ) : (
+                 <FlagTriangleLeft className="size-3.5" />
+               )}
+               {flaggedQuestions.has(currentQuestion._id) ? "Flagged" : "Flag"}
+             </Button>
+           </div>
 
           <div
             className="text-sm md:text-base leading-relaxed mb-6"
@@ -824,10 +1024,59 @@ export default function CbtPracticeSession() {
             })}
           </div>
 
-          {/* Keyboard hints */}
           <p className="text-[10px] text-muted-foreground mt-3 hidden md:block">
             Press <kbd className="px-1 py-0.5 rounded bg-muted text-[10px] font-mono">A</kbd>-<kbd className="px-1 py-0.5 rounded bg-muted text-[10px] font-mono">D</kbd> to answer, <kbd className="px-1 py-0.5 rounded bg-muted text-[10px] font-mono">S</kbd> to submit, arrow keys to navigate
           </p>
+          
+          {/* Question Map */}
+          <div className="mt-8 pt-6 border-t border-dashed border-neutral-200">
+             <div className="flex items-center justify-between mb-4">
+                 <h3 className="text-sm font-semibold text-neutral-800 shrink-0 mr-4">Question Map</h3>
+                 <div className="flex items-center gap-3 text-[10px] overflow-x-auto no-scrollbar pb-1">
+                     <div className="flex items-center gap-1.5 shrink-0">
+                         <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
+                         <span className="text-neutral-600">Answered</span>
+                     </div>
+                     <div className="flex items-center gap-1.5 shrink-0">
+                         <div className="w-2.5 h-2.5 rounded-full bg-neutral-100 border border-neutral-200"></div>
+                         <span className="text-neutral-600">Unanswered</span>
+                     </div>
+                     <div className="flex items-center gap-1.5 shrink-0">
+                         <div className="w-2.5 h-2.5 rounded-full ring-2 ring-blue-500 bg-white"></div>
+                         <span className="text-neutral-600">Current</span>
+                     </div>
+                 </div>
+             </div>
+             
+             <div 
+                ref={questionMapRef}
+                className="flex gap-2 overflow-x-auto no-scrollbar pb-4 -mx-2 p-2 scroll-smooth"
+             >
+                 {filteredQuestions.map((q, idx) => {
+                     const isAnswered = !!answers[q._id];
+                     const isCurrent = idx === currentIndex;
+                     
+                     return (
+                         <button
+                            key={q._id}
+                            onClick={() => {
+                                setCurrentIndex(idx);
+                            }}
+                            className={cn(
+                                 "h-6 w-6 rounded-full text-xs font-medium transition-all flex items-center justify-center shrink-0",
+                                 isCurrent 
+                                     ? "ring-2 ring-blue-600 bg-blue-50 text-blue-700 z-10 scale-105" 
+                                     : isAnswered 
+                                         ? "bg-emerald-500 text-white hover:bg-emerald-600 shadow-sm" 
+                                         : "bg-neutral-50 text-neutral-600 hover:bg-neutral-100 border border-neutral-200"
+                             )}
+                          >
+                              {idx + 1}
+                          </button>
+                      );
+                  })}
+              </div>
+          </div>
         </CardContent>
       </Card>
 
@@ -871,8 +1120,8 @@ export default function CbtPracticeSession() {
         )}
       </div>
 
-      {/* Question grid navigator */}
-      <div className="flex flex-wrap gap-1.5 pt-2">
+      {/* Question grid navigator - removed since it's redundant with the new Question Map */}
+      <div className="hidden">
         {filteredQuestions.map((q, i) => {
           const isAnswered = !!answers[q._id];
           const isCurrent = i === currentIndex;
@@ -928,6 +1177,40 @@ export default function CbtPracticeSession() {
                   Finish
                 </Button>
               </div>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
+      {/* Security Warning Modal */}
+      {showWarningModal && !submitted && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <Card className="max-w-md w-full border-red-500 shadow-2xl animate-in fade-in zoom-in duration-300">
+            <CardContent className="pt-8 flex flex-col items-center text-center gap-4">
+              <div className="size-16 rounded-full bg-red-100 flex items-center justify-center mb-2">
+                 <AlertTriangle className="size-8 text-red-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-red-600">Exam Violation Warning!</h3>
+              <p className="text-neutral-600 font-medium">
+                You are not allowed to leave the exam tab or window.
+              </p>
+              <div className="bg-red-50 border border-red-200 rounded-lg p-4 w-full">
+                  <p className="text-sm font-semibold text-red-800">
+                    Warning {warningCount} of 3
+                  </p>
+                  <p className="text-xs text-red-600 mt-1">
+                    Your exam will be automatically submitted after 3 warnings.
+                  </p>
+              </div>
+              <Button 
+                onClick={() => {
+                    setShowWarningModal(false);
+                    setIsPaused(false);
+                }}
+                className="w-full bg-red-600 hover:bg-red-700 text-white mt-2"
+              >
+                I Understand, Resume Exam
+              </Button>
             </CardContent>
           </Card>
         </div>

@@ -21,6 +21,7 @@ export const cbtSessionSchema = z.object({
     .number()
     .min(5, "Minimum 5 minutes")
     .max(180, "Maximum 180 minutes"),
+  mode: z.enum(["exam", "practice"]).optional(),
 });
 
 export type CbtSessionInput = z.infer<typeof cbtSessionSchema>;

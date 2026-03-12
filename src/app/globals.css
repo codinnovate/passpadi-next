@@ -101,11 +101,6 @@
    font-family: "Geist", sans-serif !important;
 }
 
-a:hover {
-  color: #4c4fde;
-  transition: all;
-  text-decoration: none;
-}
 
 .font-extrabold {
   font-weight: 900;

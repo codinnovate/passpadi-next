@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CbtDashboard from "@/components/cbt/CbtDashboard";
+import MockExamsList from "@/components/cbt/MockExamsList";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://90percent.ng";
 
@@ -154,69 +155,23 @@ function CbtFaqJsonLd() {
 
 export default function CbtPage() {
   return (
-    <>
+    <div className="space-y-8 pb-20">
       <CbtJsonLd />
       <CbtFaqJsonLd />
-      <div className="flex flex-col w-full gap-6 py-6">
-        <div>
-          <h1 className="text-3xl font-bold">CBT Practice</h1>
-          <p className="text-muted-foreground mt-1">
-            Practice with real JAMB, WAEC, NECO &amp; Post-UTME past questions
-            — timed sessions, instant scoring, and detailed explanations
-          </p>
-        </div>
-        <CbtDashboard />
-
-        {/* SEO content — visible to crawlers, helpful to users */}
-        <section className="mt-8 space-y-6 text-sm text-muted-foreground">
-          <h2 className="text-lg font-semibold text-foreground">
-            Why Practice CBT on 90percent?
-          </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <h3 className="font-medium text-foreground">
-                Thousands of Past Questions
-              </h3>
-              <p>
-                Access verified past questions from JAMB UTME, WAEC SSCE, NECO,
-                and Post-UTME exams across all major subjects — Mathematics,
-                English, Physics, Chemistry, Biology, Economics, Government, and
-                more.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-foreground">
-                Realistic Timed Sessions
-              </h3>
-              <p>
-                Simulate the real CBT experience with customizable timed
-                practice sessions. Choose your duration from 5 minutes to 3
-                hours to match your exam conditions.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-foreground">
-                Instant Scores &amp; Explanations
-              </h3>
-              <p>
-                Get your results immediately after each session with a detailed
-                breakdown by subject, showing correct answers and explanations to
-                help you learn from mistakes.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-foreground">
-                Completely Free
-              </h3>
-              <p>
-                No hidden charges, no subscriptions. Practice as many times as
-                you want with unlimited access to all past questions and CBT
-                sessions.
-              </p>
-            </div>
-          </div>
-        </section>
+      
+      <div className="space-y-2">
+        <h1 className="text-3xl font-bold text-neutral-900">CBT Practice Centre</h1>
+        <p className="text-neutral-500">
+          Master your exams with timed practice sessions and mock tests.
+        </p>
       </div>
-    </>
+
+      <MockExamsList />
+
+      <div className="border-t border-neutral-200 pt-8">
+        <h2 className="text-xl font-bold text-neutral-900 mb-6">Quick Practice</h2>
+        <CbtDashboard />
+      </div>
+    </div>
   );
 }

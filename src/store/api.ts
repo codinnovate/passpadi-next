@@ -162,6 +162,42 @@ export const api = createApi({
       },
       providesTags: ["CBT"],
     }),
+    getCbtExamById: builder.query({
+      query: (id: string) => `/api/v1/cbt/exams/${id}`,
+      providesTags: (_result: any, _error: any, id: string) => [{ type: "CBT", id }],
+    }),
+    enrollCbtExam: builder.mutation({
+      query: ({ id, subjects }: { id: string; subjects: string[] }) => ({
+        url: `/api/v1/cbt/exams/${id}/enroll`,
+        method: "POST",
+        body: { subjects },
+      }),
+      invalidatesTags: ["CBT"],
+    }),
+    getCbtEnrollments: builder.query({
+      query: (id: string) => `/api/v1/cbt/exams/${id}/enrollments`,
+      providesTags: ["CBT"],
+    }),
+    getMyCbtEnrollment: builder.query({
+      query: (id: string) => `/api/v1/cbt/exams/${id}/my-enrollment`,
+      providesTags: ["CBT"],
+    }),
+    startCbtAttempt: builder.mutation({
+      query: ({ examId, totalQuestions }: { examId: string; totalQuestions: number }) => ({
+        url: `/api/v1/cbt/exams/${examId}/start`,
+        method: "POST",
+        body: { totalQuestions },
+      }),
+      invalidatesTags: ["CBT"],
+    }),
+    submitCbtAttempt: builder.mutation({
+      query: ({ examId, attemptId, correct, wrong, skipped, durationSeconds }: any) => ({
+        url: `/api/v1/cbt/exams/${examId}/submit`,
+        method: "POST",
+        body: { attemptId, correct, wrong, skipped, durationSeconds },
+      }),
+      invalidatesTags: ["CBT"],
+    }),
     getCbtSubjects: builder.query({
       query: () => "/api/v1/subjects",
       providesTags: ["CBT"],
@@ -484,6 +520,18 @@ export const api = createApi({
       }),
       invalidatesTags: ["Notification", "Group"],
     }),
+
+    // Report endpoints
+    createReport: builder.mutation<
+      { success: boolean; data: any },
+      { questionId: string; description?: string }
+    >({
+      query: (body) => ({
+        url: "/api/v1/reports",
+        method: "POST",
+        body,
+      }),
+    }),
   }),
 });
 
@@ -504,6 +552,12 @@ export const {
   useGetBlogByIdQuery,
   useGetFeedsQuery,
   useGetCbtExamsQuery,
+  useGetCbtExamByIdQuery,
+  useEnrollCbtExamMutation,
+  useGetCbtEnrollmentsQuery,
+  useGetMyCbtEnrollmentQuery,
+  useStartCbtAttemptMutation,
+  useSubmitCbtAttemptMutation,
   useGetCbtSubjectsQuery,
   useGetQuestionsQuery,
   useLazyGetQuestionsQuery,
@@ -533,4 +587,5 @@ export const {
   useMarkNotificationAsReadMutation,
   useDeleteNotificationMutation,
   useRespondToGroupInvitationMutation,
+  useCreateReportMutation,
 } = api;
