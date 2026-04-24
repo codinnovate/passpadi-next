@@ -127,7 +127,39 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            6. Advertising
+            6. Admission Advice Services
+          </h2>
+          <p className="mb-2">
+            90percent may provide admission guidance, admission chance reviews,
+            logistics support, WhatsApp updates, or access to conversations with
+            education advisers. These services are advisory only.
+          </p>
+          <ul className="ml-5 list-disc space-y-1.5">
+            <li>
+              We do not guarantee admission into any university, polytechnic,
+              college, or other institution.
+            </li>
+            <li>
+              We do not represent JAMB, any school, admissions office, or
+              government agency unless expressly stated in writing.
+            </li>
+            <li>
+              We cannot change, upgrade, manipulate, or influence your JAMB
+              score, Post-UTME score, O&apos;level result, admission status, or
+              school records.
+            </li>
+            <li>
+              Any guidance we provide is based on available information,
+              experience, public admission patterns, and the details you share
+              with us. Final admission decisions remain solely with the relevant
+              institutions and authorities.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="mb-3 text-lg font-semibold text-app-secondary">
+            7. Advertising
           </h2>
           <p>
             The Service may display advertisements provided by third-party
@@ -142,7 +174,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            7. Intellectual Property
+            8. Intellectual Property
           </h2>
           <p>
             All content on the Service, including but not limited to text,
@@ -155,7 +187,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            8. User-Generated Content
+            9. User-Generated Content
           </h2>
           <p>
             By posting content on the Service (including feeds, comments, and
@@ -169,7 +201,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            9. Disclaimers
+            10. Disclaimers
           </h2>
           <p>
             The Service is provided on an &quot;as is&quot; and &quot;as
@@ -183,7 +215,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            10. Limitation of Liability
+            11. Limitation of Liability
           </h2>
           <p>
             To the maximum extent permitted by law, 90percent shall not be
@@ -195,7 +227,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            11. Termination
+            12. Termination
           </h2>
           <p>
             We reserve the right to suspend or terminate your account and access
@@ -207,7 +239,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            12. Changes to Terms
+            13. Changes to Terms
           </h2>
           <p>
             We may update these Terms from time to time. We will notify you of
@@ -219,7 +251,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            13. Governing Law
+            14. Governing Law
           </h2>
           <p>
             These Terms shall be governed by and construed in accordance with the
@@ -230,7 +262,7 @@ const Terms = () => {
 
         <section>
           <h2 className="mb-3 text-lg font-semibold text-app-secondary">
-            14. Contact Us
+            15. Contact Us
           </h2>
           <p>
             If you have any questions about these Terms &amp; Conditions, you can
