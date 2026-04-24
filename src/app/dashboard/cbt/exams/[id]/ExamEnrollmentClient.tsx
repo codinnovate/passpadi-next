@@ -9,7 +9,6 @@ import { Calendar, Clock, Users, AlertCircle, CheckCircle2 } from "lucide-react"
 import { format } from "date-fns";
 import { toast } from "sonner";
 import Image from "next/image";
-import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, useCallback, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useGetCbtExamByIdQuery, useGetCbtEnrollmentsQuery, useStartCbtAttemptMutation, useCreateReportMutation } from "@/store/api";
 import { useSelector } from "react-redux";
-import { format } from "date-fns";
 import { toast } from "sonner";
 import {
   Clock,

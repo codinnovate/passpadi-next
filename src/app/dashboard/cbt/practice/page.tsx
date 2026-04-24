@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+
 import CbtPracticeSession from "@/components/cbt/CbtPracticeSession";
+import Loader from "@/components/Loader";
 
 export const metadata: Metadata = {
   title: "Practice Session — CBT",
@@ -7,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function CbtPracticePage() {
-  return <CbtPracticeSession />;
+  return (
+    <Suspense fallback={<Loader />}>
+      <CbtPracticeSession />
+    </Suspense>
+  );
 }
