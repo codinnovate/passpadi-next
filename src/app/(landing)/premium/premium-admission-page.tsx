@@ -61,19 +61,19 @@ const stepStyles = [
 
 const steps = [
   {
-    title: "Share your details",
+    title: "Enter your score and choices",
     description:
-      "Tell us your 2026 JAMB score, course, school and contact information.",
+      "Submit your JAMB score, intended course, preferred school and key details.",
   },
   {
-    title: "Join the admission channel",
+    title: "Get your admission review",
     description:
-      "Get verified admission updates, deadline reminders and expert notes.",
+      "Our team reviews your profile and gives a realistic estimate of your admission chances.",
   },
   {
-    title: "Pay logistics",
+    title: "Receive guidance and updates",
     description:
-      "The ₦1,000 fee gives you access to real-time expert admission chat.",
+      "Get practical next steps, safer alternatives and important admission deadline alerts.",
   },
 ];
 
@@ -353,7 +353,7 @@ export default function PremiumAdmissionPage() {
               How it works
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-[-0.03em] md:text-5xl">
-              Three quick steps from Facebook ad to expert guidance.
+              Three clear steps to understand your admission chances.
             </h2>
           </div>
 

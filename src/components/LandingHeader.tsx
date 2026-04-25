@@ -16,7 +16,7 @@ const LandingHeader = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white/95 backdrop-blur-sm">
-      <div className="mx-auto flex h-14 max-w-screen-xl items-center justify-between gap-4 px-4">
+      <div className="mx-auto flex h-14 max-w-7xl items-center justify-between gap-4 px-4">
         {/* Logo */}
         <div className="shrink-0">
           <Logo className="w-[90px]" />
@@ -38,7 +38,7 @@ const LandingHeader = () => {
         {/* Right */}
         <div className="flex items-center gap-3">
           <Link
-            href="/dashboard"
+            href="/login"
             className="hidden  rounded-full bg-app-secondary px-5 py-2 text-sm font-medium text-white transition-all hover:brightness-110 active:scale-[0.97] sm:inline-flex"
           >
             Login
