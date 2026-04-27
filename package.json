@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "25.x"
+    "node": "24.x"
   },
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "node api.js && next dev --turbopack",
     "dev:typecheck": "tsc --noEmit --watch",
     "typecheck": "tsc --noEmit",
-    "build": "npx tsc --noEmit && next build",
-    "start": "next start",
+    "build": "node api.js && npx tsc --noEmit && next build",
+    "start": "node api.js && next start",
     "lint": "next lint"
   },
   "dependencies": {
