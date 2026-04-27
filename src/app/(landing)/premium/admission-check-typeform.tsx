@@ -220,16 +220,18 @@ export function AdmissionCheckTypeform({
             </div>
           </form>
 
-          <AdmissionCheckAfterPaymentCard
-            handlePayment={handlePayment}
-            isStartingPayment={isStartingPayment}
-            paymentComplete={paymentComplete}
-            paymentError={paymentError}
-            submitted={submitted}
-            whatsappChannelUrl={whatsappChannelUrl}
-            whatsappMessage={whatsappMessage}
-            onTrackEvent={trackAdmissionEvent}
-          />
+          {isLastStep ? (
+            <AdmissionCheckAfterPaymentCard
+              handlePayment={handlePayment}
+              isStartingPayment={isStartingPayment}
+              paymentComplete={paymentComplete}
+              paymentError={paymentError}
+              submitted={submitted}
+              whatsappChannelUrl={whatsappChannelUrl}
+              whatsappMessage={whatsappMessage}
+              onTrackEvent={trackAdmissionEvent}
+            />
+          ) : null}
 
           {paymentComplete && showPaymentSuccessModal ? (
             <AdmissionPaymentSuccessModal
@@ -256,4 +258,3 @@ export function AdmissionCheckTypeform({
     </div>
   );
 }
-

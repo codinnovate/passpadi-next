@@ -24,7 +24,7 @@ import { AdmissionCheckTypeform } from "./admission-check-typeform";
 const stats = [
   { value: "24/7", label: "admission updates" },
   { value: "1:1", label: "expert chat support" },
-  { value: "₦1,000", label: "logistics fee" },
+  { value: "10k +", label: "Students Helped" },
 ];
 
 const benefits = [

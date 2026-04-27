@@ -1,0 +1,10 @@
+nformation on installing Java.
+
+/Users/cody/.openclaw/completions/openclaw.zsh:3803: command not found: compdef
+cody@CODYs-MacBook-Air source-code % cd web-app 
+cody@CODYs-MacBook-Air web-app % yarn dev
+yarn run v1.22.22
+error passpadi-next-app@0.1.0: The engine "node" is incompatible with this module. Expected version "22.x". Got "25.7.0"
+error Commands cannot run with an incompatible environment.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+cody@CODYs-MacBook-Air web-app % 
