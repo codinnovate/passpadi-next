@@ -6,11 +6,11 @@
     "node": "24.x"
   },
   "scripts": {
-    "dev": "node api.js && next dev --turbopack",
+    "dev": "next dev --turbopack",
     "dev:typecheck": "tsc --noEmit --watch",
     "typecheck": "tsc --noEmit",
-    "build": "node api.js && npx tsc --noEmit && next build",
-    "start": "node api.js && next start",
+    "build": "npx tsc --noEmit && next build",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
